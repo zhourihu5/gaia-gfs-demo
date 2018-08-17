@@ -37,7 +37,7 @@ spring:
       path: /h2-console #console url
 
 mybatis:
-  typeAliasesPackage: com.longfor.daenerys3.web.demo.repo.dao.entity
+  typeAliasesPackage: com.longfor.daenerys3.demo.web.repo.dao.entity
   mapperLocations:
   - classpath:mapper/*.xml
 

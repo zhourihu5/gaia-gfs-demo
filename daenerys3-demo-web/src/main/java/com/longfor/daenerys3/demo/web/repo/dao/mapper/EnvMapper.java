@@ -1,7 +1,7 @@
-package com.longfor.daenerys3.web.demo.repo.dao.mapper;
+package com.longfor.daenerys3.demo.web.repo.dao.mapper;
 
 import com.longfor.daenerys3.data.mybatis.LFMySQLMapper;
-import com.longfor.daenerys3.web.demo.repo.dao.entity.Env;
+import com.longfor.daenerys3.demo.web.repo.dao.entity.Env;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

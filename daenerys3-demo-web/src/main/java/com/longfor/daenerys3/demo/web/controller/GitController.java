@@ -1,4 +1,4 @@
-package com.longfor.daenerys3.web.demo.controller;
+package com.longfor.daenerys3.demo.web.controller;
 
 import com.longfor.daenerys3.core.response.BaseResponse;
 import com.longfor.daenerys3.web.core.config.GitVersionConfig;

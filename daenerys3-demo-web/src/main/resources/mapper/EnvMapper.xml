@@ -1,5 +1,5 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.longfor.daenerys3.web.demo.repo.dao.mapper.EnvMapper">
+<mapper namespace="com.longfor.daenerys3.demo.web.repo.dao.mapper.EnvMapper">
 
     <sql id="COLS_INSERT">
         name, description, create_by, update_by

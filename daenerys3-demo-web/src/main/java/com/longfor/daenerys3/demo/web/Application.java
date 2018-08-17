@@ -1,4 +1,4 @@
-package com.longfor.daenerys3.web.demo;
+package com.longfor.daenerys3.demo.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;

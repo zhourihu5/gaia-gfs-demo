@@ -1,8 +1,8 @@
-package com.longfor.daenerys3.web.demo.controller;
+package com.longfor.daenerys3.demo.web.controller;
 
 import com.longfor.daenerys3.core.response.BaseResponse;
-import com.longfor.daenerys3.web.demo.repo.dao.entity.Env;
-import com.longfor.daenerys3.web.demo.repo.dao.mapper.EnvMapper;
+import com.longfor.daenerys3.demo.web.repo.dao.entity.Env;
+import com.longfor.daenerys3.demo.web.repo.dao.mapper.EnvMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.longfor.daenerys3.web.demo.repo.dao.entity;
+package com.longfor.daenerys3.demo.web.repo.dao.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
