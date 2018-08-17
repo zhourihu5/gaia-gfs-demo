@@ -16,20 +16,42 @@
 
     <properties>
         <daenerys3.version>1.0.0-SNAPSHOT</daenerys3.version>
+        <h2.version>1.4.192</h2.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.longfor.daenerys3</groupId>
-            <artifactId>daenerys3-web-core</artifactId>
+            <artifactId>daenerys3-web-etcd</artifactId>
             <version>${daenerys3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.longfor.daenerys3</groupId>
+            <artifactId>daenerys3-data-mybatis</artifactId>
+            <version>${daenerys3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.longfor.daenerys3</groupId>
+            <artifactId>daenerys3-web-etcd-discovery</artifactId>
+            <version>${daenerys3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
-            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
@@ -41,6 +63,20 @@
     </dependencies>
 
     <build>
+        <finalName>${project.name}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

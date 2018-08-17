@@ -1,3 +1,60 @@
 spring:
   application:
-    name: @project.name@
+    name: daenerys3-web-demo
+  cloud:
+    etcd:
+      uris:
+        - "http://127.0.0.1:2379"
+      discovery:
+        enabled: true
+        prefix: /services
+        heartbeatInterval: 25000 # default 25000
+        discoveryPrefix: longfor # default /spring/cloud/discovery
+        preferIpAddress: true # default false
+        ttl: 30000 # default 30000, 在etcd中的超时时间, 一定要大于 heartbeatInterval, 否则还没心跳丢下线了
+      ribbon:
+        enabled: true # default true
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:mem:siberia;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password:
+    schema: classpath:db/schema.sql
+    data: classpath:db/data.sql
+
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true #remote visit
+        trace: true
+      path: /h2-console #console url
+
+mybatis:
+  typeAliasesPackage: com.longfor.daenerys3.web.demo.repo.dao.entity
+  mapperLocations:
+  - classpath:mapper/*.xml
+
+mapper:
+  notEmpty: true
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+# ===================================================================
+# springboot标准配置
+# ===================================================================
+
+logging:
+  level:
+    ROOT: INFO
+    com.longfor: DEBUG
+server.port: 8080

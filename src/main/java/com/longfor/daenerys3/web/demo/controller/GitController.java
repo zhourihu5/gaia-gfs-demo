@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * @since 2018-08-15 15:23
  */
 @RestController
-@RequestMapping("api/demo")
+@RequestMapping("api/git")
 public class GitController {
 
     @Resource
@@ -24,7 +24,7 @@ public class GitController {
     @Resource
     private GitVersionMapper gitVersionMapper;
 
-    @GetMapping(value = "git", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "info", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public BaseResponse<GitVersionDTO> fetchGitInfo() {
         return new BaseResponse<>(gitVersionMapper.toDTO(this.gitVersionConfig));
     }

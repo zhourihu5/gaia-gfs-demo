@@ -3,6 +3,7 @@ package com.longfor.daenerys3.web.demo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
  * @since 2018-08-15 15:20
  */
 @SpringBootApplication(scanBasePackages = "com.longfor")
+@EnableDiscoveryClient
 @Slf4j
 public class Application extends SpringApplication {
 
