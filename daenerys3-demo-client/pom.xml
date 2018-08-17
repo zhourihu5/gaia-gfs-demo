@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>com.longfor.daenerys3</groupId>
-            <artifactId>daenerys3-core</artifactId>
+            <artifactId>daenerys3-web-swagger</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

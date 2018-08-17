@@ -39,6 +39,13 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
 
+# daenerys3 配置
+
+daenerys3:
+  web:
+    swagger:
+      enabled: true
+
 # ===================================================================
 # springboot标准配置
 # ===================================================================
