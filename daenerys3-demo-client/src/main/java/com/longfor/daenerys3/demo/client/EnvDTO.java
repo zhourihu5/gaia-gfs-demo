@@ -1,19 +1,16 @@
-package com.longfor.daenerys3.demo.web.repo.dao.entity;
+package com.longfor.daenerys3.demo.client;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Id;
-
 /**
  * @author shanhonghao
- * @since 2018-05-24 16:20
+ * @since 2018-08-17 11:12
  */
 @Data
 @NoArgsConstructor
-public class Env {
+public class EnvDTO {
 
-    @Id
     private Integer id;
     private String name;
     private String description;

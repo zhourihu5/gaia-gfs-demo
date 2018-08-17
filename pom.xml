@@ -21,13 +21,19 @@
 
     <modules>
         <module>daenerys3-demo-web</module>
+        <module>daenerys3-demo-client</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.longfor.daenerys3</groupId>
-                <artifactId>daenerys3-web-etcd</artifactId>
+                <artifactId>daenerys3-demo-client</artifactId>
+                <version>${daenerys3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.longfor.daenerys3</groupId>
+                <artifactId>daenerys3-core</artifactId>
                 <version>${daenerys3.version}</version>
             </dependency>
             <dependency>
@@ -37,14 +43,8 @@
             </dependency>
             <dependency>
                 <groupId>com.longfor.daenerys3</groupId>
-                <artifactId>daenerys3-web-etcd-discovery</artifactId>
+                <artifactId>daenerys3-web-core</artifactId>
                 <version>${daenerys3.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
             </dependency>
 
             <dependency>

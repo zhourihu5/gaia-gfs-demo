@@ -8,10 +8,12 @@
         id, <include refid="COLS_INSERT"/>
     </sql>
 
-    <select id="paginateByName" resultType="Env">
+    <select id="paginate" resultType="Env">
         SELECT <include refid="COLS_ALL"/>
         FROM env
-        WHERE name = #{name}
+        <where>
+            <if test="name != null">AND name=#{name}</if>
+        </where>
     </select>
 
 </mapper>

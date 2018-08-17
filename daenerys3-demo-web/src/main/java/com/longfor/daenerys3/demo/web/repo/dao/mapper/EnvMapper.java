@@ -1,8 +1,8 @@
 package com.longfor.daenerys3.demo.web.repo.dao.mapper;
 
 import com.longfor.daenerys3.data.mybatis.LFMySQLMapper;
+import com.longfor.daenerys3.demo.web.repo.dao.condition.EnvPaginateCondition;
 import com.longfor.daenerys3.demo.web.repo.dao.entity.Env;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,5 +12,6 @@ import java.util.List;
  */
 public interface EnvMapper extends LFMySQLMapper<Env> {
 
-    List<Env> paginateByName(@Param("name") String name);
+    List<Env> paginate(EnvPaginateCondition condition);
+
 }

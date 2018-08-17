@@ -1,13 +1,16 @@
 package com.longfor.daenerys3.demo.web.controller;
 
 import com.longfor.daenerys3.core.response.BaseResponse;
-import com.longfor.daenerys3.demo.web.repo.dao.entity.Env;
-import com.longfor.daenerys3.demo.web.repo.dao.mapper.EnvMapper;
-import org.apache.commons.lang3.StringUtils;
+import com.longfor.daenerys3.demo.client.EnvDTO;
+import com.longfor.daenerys3.demo.web.service.EnvService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 /**
  * @author shanhonghao
@@ -18,23 +21,25 @@ import javax.annotation.Resource;
 public class EnvController {
 
     @Resource
-    private EnvMapper envMapper;
+    private EnvService envService;
 
-    @GetMapping(value = "",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public BaseResponse pagianteEnvsByNames(
+    @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public BaseResponse pagianteEnvs(
+            @Valid @NotNull @Min(0)
+            @RequestParam(value = "pageNum") Integer pageNum,
+
+            @Valid @NotNull @Min(1)
+            @RequestParam(value = "pageNum") Integer pageSize,
+
             @RequestParam(value = "name", required = false) String name
     ) {
-        if (StringUtils.isBlank(name)) {
-            return new BaseResponse(envMapper.selectAll());
-        } else {
-            return new BaseResponse(envMapper.paginateByName(StringUtils.trimToEmpty(name)));
-        }
+        return new BaseResponse(envService.paginateEnvs(pageNum, pageSize, name));
     }
 
-    @GetMapping(value = "{envId}",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public BaseResponse loadEnvById(@PathVariable("envId") Integer envId) {
-        Env env = envMapper.selectByPrimaryKey(envId);
-        return new BaseResponse(env);
+    @GetMapping(value = "{envId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public BaseResponse<EnvDTO> loadEnvById(@PathVariable("envId") Integer envId) {
+        Optional<EnvDTO> env = envService.loadEnvById(envId);
+        return env.map(BaseResponse::new).orElseGet(BaseResponse::new);
     }
 
 }
