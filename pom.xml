@@ -46,6 +46,11 @@
                 <artifactId>daenerys3-web-swagger</artifactId>
                 <version>${daenerys3.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.longfor.daenerys3</groupId>
+                <artifactId>daenerys3-web-metrics</artifactId>
+                <version>${daenerys3.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.h2database</groupId>
