@@ -31,13 +31,13 @@ public class EnvController {
     @ApiOperation(value = "分页获取环境列表", notes = "curl -X GET \"http://127.0.0.1:8080/api/envs?pageNum=0&pageSize=10\" -H \"accept: application/json;charset=UTF-8\"")
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public BaseResponse<PageInfo<EnvDTO>> pagianteEnvs(
-            @ApiParam(value = "当前页码", required = true)
-            @Valid @NotNull @Min(0)
-            @RequestParam(value = "pageNum") Integer pageNum,
+            @ApiParam(value = "当前页码", required = false)
+            @Valid @Min(0)
+            @RequestParam(value = "pageNum", required = false, defaultValue = "0") Integer pageNum,
 
-            @ApiParam(value = "分页大小", required = true)
-            @Valid @NotNull @Min(1)
-            @RequestParam(value = "pageSize") Integer pageSize,
+            @ApiParam(value = "分页大小", required = false)
+            @Valid @Min(1)
+            @RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize,
 
             @ApiParam(value = "环境名称", required = false)
             @RequestParam(value = "name", required = false) String name

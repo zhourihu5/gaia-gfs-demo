@@ -1,82 +1,26 @@
-server.port: 8080
-management.port: 7070
-
+# ===================================================================
+# springboot标准配置
+# ===================================================================
 spring:
-  application:
-    name: daenerys3-web-demo
+  profiles:
+    active: dev
+  mvc:
+    favicon:
+      enabled: false
   devtools:
     restart:
       enabled: true
     livereload:
       enabled: true
-  datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:mem:siberia;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    platform: h2
-    username: sa
-    password:
-    schema: classpath:db/schema.sql
-    data: classpath:db/data.sql
-
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true #remote visit
-        trace: true
-      path: /h2-console #console url
-  cloud:
-    consul:
-      host: 127.0.0.1
-      port: 8500
-      discovery:
-        register: true
-        serverName: daenerys3-web-demo
-        healthCheckInterval: 5s
-        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
-
-# mybatis 配置
-
-mybatis:
-  typeAliasesPackage: com.longfor.daenerys3.demo.web.repo.dao.entity
-  mapperLocations:
-  - classpath:mapper/*.xml
-
-mapper:
-  notEmpty: true
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-
-# daenerys3 配置
-
-daenerys3:
-  web:
-    swagger:
-      enabled: true
-    metrics:
-      jmx:
-        enabled: true # default true
-      prometheus:
-        enabled: true # default false
-        endpoint: /prometheus
-      logs:
-        enabled: true # default false
-        reportFrequency: 60 # default 60
-
-
-# ===================================================================
-# springboot标准配置
-# ===================================================================
 
 logging:
   level:
-    ROOT: INFO
-    com.longfor: DEBUG
+    ROOT: WARN
+    com.longfor: INFO
 
-management.security.enabled: false
+management:
+  security:
+    enabled: false
 endpoints:
   health:
     sensitive: false

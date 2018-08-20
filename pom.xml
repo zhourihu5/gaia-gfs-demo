@@ -17,6 +17,7 @@
     <properties>
         <daenerys3.version>1.0.0-SNAPSHOT</daenerys3.version>
         <h2.version>1.4.192</h2.version>
+        <mysql.version>5.1.46</mysql.version>
     </properties>
 
     <modules>
@@ -56,6 +57,11 @@
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
 
             <dependency>

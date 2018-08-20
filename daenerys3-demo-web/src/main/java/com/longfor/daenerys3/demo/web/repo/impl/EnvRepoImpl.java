@@ -2,6 +2,7 @@ package com.longfor.daenerys3.demo.web.repo.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.longfor.daenerys3.data.mybatis.datasource.LFAssignDataSource;
 import com.longfor.daenerys3.demo.client.EnvDTO;
 import com.longfor.daenerys3.demo.web.convertor.EnvConvertor;
 import com.longfor.daenerys3.demo.web.repo.EnvRepo;
@@ -28,6 +29,7 @@ public class EnvRepoImpl implements EnvRepo {
     private EnvMapper envMapper;
 
     @Override
+    @LFAssignDataSource("custom01")
     public Optional<EnvDTO> loadEnvById(Integer envId) {
         Env env = envMapper.selectByPrimaryKey(envId);
         return Optional.ofNullable(EnvConvertor.toDTO(env));
