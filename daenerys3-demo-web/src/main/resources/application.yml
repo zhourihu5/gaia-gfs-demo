@@ -1,3 +1,4 @@
+server.port: 8080
 spring:
   application:
     name: daenerys3-web-demo
@@ -22,7 +23,15 @@ spring:
         web-allow-others: true #remote visit
         trace: true
       path: /h2-console #console url
-
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        register: true
+        serverName: daenerys3-web-demo
+        healthCheckInterval: 5s
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
 
 # mybatis 配置
 
@@ -54,4 +63,15 @@ logging:
   level:
     ROOT: INFO
     com.longfor: DEBUG
-server.port: 8080
+
+management.security.enabled: false
+endpoints:
+  health:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  prometheus:
+    enabled: false
+    path: prometheus-metrics
