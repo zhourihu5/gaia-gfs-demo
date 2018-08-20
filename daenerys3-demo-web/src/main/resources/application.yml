@@ -56,6 +56,16 @@ daenerys3:
   web:
     swagger:
       enabled: true
+    metrics:
+      jmx:
+        enabled: true # default true
+      prometheus:
+        enabled: true # default false
+        endpoint: /prometheus
+      logs:
+        enabled: true # default false
+        reportFrequency: 60 # default 60
+
 
 # ===================================================================
 # springboot标准配置
@@ -74,6 +84,3 @@ endpoints:
     enabled: true
   shutdown:
     enabled: true
-  prometheus:
-    enabled: true
-    path: prometheus-metrics
