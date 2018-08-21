@@ -54,6 +54,12 @@ longfor:
   web:
     swagger:
       enabled: true
+      description: api docs for daenerys3 demo
+      basePackage: com.longfor
+      contact:
+        name: shanhonghao
+        url: https://www.shanhh.com
+        email: i@shanhh.com
     metrics:
       jmx:
         enabled: true # default true

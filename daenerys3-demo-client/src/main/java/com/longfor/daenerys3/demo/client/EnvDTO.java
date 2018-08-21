@@ -16,18 +16,18 @@ import java.util.Date;
 @NoArgsConstructor
 public class EnvDTO {
 
-    @ApiModelProperty("自增id")
+    @ApiModelProperty(value = "自增id", example = "1")
     private Integer id;
-    @ApiModelProperty("环境名称")
+    @ApiModelProperty(value = "环境名称", example = "dev")
     private String name;
-    @ApiModelProperty("环境描述")
+    @ApiModelProperty(value = "环境描述", example = "研发环境")
     private String description;
-    @ApiModelProperty("创建者")
+    @ApiModelProperty(value = "创建者", example = "shanhonghao")
     private String createBy;
-    @ApiModelProperty("修改者")
+    @ApiModelProperty(value = "修改者", example = "shanhonghao")
     private String updateBy;
-    @ApiModelProperty("创建时间")
+    @ApiModelProperty(value = "创建时间", example = "2018-01-01T01:00:00")
     private Date createTime;
-    @ApiModelProperty("修改时间")
+    @ApiModelProperty(value = "修改时间", example = "2018-01-01T01:00:00")
     private Date updateTime;
 }
