@@ -4,6 +4,12 @@
 
 该项目用于演示基于 daenerys3 开发的案例
 
+大致描述一下项目的调用关系: 
+
+* daenerys3-demo-web (以下简称 web) 是一个 web application, 发布了两组 api (EnvController 和 GitController).
+* daenerys3-demo-client (以下简称 client) 是 web 定义的一组调用的 sdk, 便于其它服务去调用自己, 只有两个代码文件: xxxDTO用于描述传输对象, xxxClient 用于定义调用接口.
+* daenerys3-demo-consumer (以下简称 consumer) 通过 web 提供的 client, 调用 web 提供的服务.
+
 项目展示了框架赋予的一些功能:
 
 * [基于 consul 的服务发现](docs/consul.md)
