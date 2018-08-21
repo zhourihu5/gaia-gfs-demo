@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -41,6 +42,13 @@ public class GlobalExceptionHandler {
     public BaseResponse LFBizExceptionHandler(HttpServletRequest request, Exception e) {
         log.warn(e.getMessage());
         return new BaseResponse(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()), e.getMessage(), null);
+    }
+
+    @ExceptionHandler(value = NoHandlerFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseBody
+    public BaseResponse defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+        return new BaseResponse(String.valueOf(HttpStatus.NOT_FOUND.value()), String.format("%s not found", req.getContextPath()), null);
     }
 
     @ExceptionHandler(value = Exception.class)

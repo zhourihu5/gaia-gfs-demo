@@ -7,6 +7,9 @@ spring:
   mvc:
     favicon:
       enabled: false
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
   devtools:
     restart:
       enabled: true
@@ -21,6 +24,8 @@ logging:
 management:
   security:
     enabled: false
+  endpoints:
+    web.exposure.include: '*'
 endpoints:
   health:
     sensitive: false
