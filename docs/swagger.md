@@ -4,6 +4,12 @@
 
 # [Swagger UI](https://swagger.io/tools/swagger-ui/)
 
+Swagger是一系列RESTful API 的工具, 通过Swagger你可以获得项目的一种交互式文档, 客户端SDK的自动生成等功能. 我们从 Swagger Github 的官方主页摘录:
+
+> The goal of Swagger™ is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection.
+
+所以, 不需要阅读源码和文档, 就可以让程序员和机器能够发现和理解服务的接口.
+
 ![](imgs/swagger_1.png)
 
 swagger 允许用户直接在代码层面去维护 api 文档.

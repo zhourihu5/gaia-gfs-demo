@@ -1,5 +1,6 @@
 package com.longfor.daenerys3.demo.web.controller;
 
+import com.codahale.metrics.annotation.Timed;
 import com.github.pagehelper.PageInfo;
 import com.longfor.daenerys3.core.response.BaseResponse;
 import com.longfor.daenerys3.demo.client.EnvDTO;
@@ -28,6 +29,7 @@ public class EnvController {
     @Resource
     private EnvService envService;
 
+    @Timed
     @ApiOperation(value = "分页获取环境列表", notes = "curl -X GET \"http://127.0.0.1:8080/api/envs?pageNum=0&pageSize=10\" -H \"accept: application/json;charset=UTF-8\"")
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public BaseResponse<PageInfo<EnvDTO>> pagianteEnvs(
@@ -45,6 +47,7 @@ public class EnvController {
         return new BaseResponse(envService.paginateEnvs(pageNum, pageSize, name));
     }
 
+    @Timed
     @ApiOperation(value = "查询指定id的环境信息", notes = "curl -X GET \"http://127.0.0.1:8080/api/envs/1\" -H \"accept: application/json;charset=UTF-8\"")
     @GetMapping(value = "{envId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public BaseResponse<EnvDTO> loadEnvById(
