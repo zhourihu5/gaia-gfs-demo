@@ -1,4 +1,4 @@
-package com.longfor.daenerys3.demo.client;
+package com.longfor.daenerys3.demo.client.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

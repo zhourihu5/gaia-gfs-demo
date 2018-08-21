@@ -9,7 +9,7 @@ management:
 
 spring:
   application:
-    name: daenerys3-demo
+    name: daenerys3-demo-web
   datasource:
     username: sa
     password:

@@ -10,28 +10,28 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>daenerys3-demo-client</artifactId>
+    <artifactId>daenerys3-demo-consumer</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.longfor.daenerys3</groupId>
-            <artifactId>daenerys3-core</artifactId>
+            <artifactId>daenerys3-demo-client</artifactId>
         </dependency>
         <dependency>
             <groupId>com.longfor.daenerys3</groupId>
-            <artifactId>daenerys3-web-swagger</artifactId>
+            <artifactId>daenerys3-web-core</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-feign</artifactId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>${project.name}</finalName>
+    </build>
 
 </project>

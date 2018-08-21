@@ -1,7 +1,7 @@
 package com.longfor.daenerys3.demo.web.repo;
 
 import com.github.pagehelper.PageInfo;
-import com.longfor.daenerys3.demo.client.EnvDTO;
+import com.longfor.daenerys3.demo.client.dto.EnvDTO;
 import com.longfor.daenerys3.demo.web.repo.dao.condition.EnvPaginateCondition;
 
 import java.util.Optional;

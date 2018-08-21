@@ -1,7 +1,7 @@
 package com.longfor.daenerys3.demo.web.service;
 
 import com.github.pagehelper.PageInfo;
-import com.longfor.daenerys3.demo.client.EnvDTO;
+import com.longfor.daenerys3.demo.client.dto.EnvDTO;
 
 import java.util.Optional;
 

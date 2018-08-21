@@ -1,6 +1,6 @@
 package com.longfor.daenerys3.demo.web.convertor;
 
-import com.longfor.daenerys3.demo.client.EnvDTO;
+import com.longfor.daenerys3.demo.client.dto.EnvDTO;
 import com.longfor.daenerys3.demo.web.repo.dao.entity.Env;
 import org.springframework.beans.BeanUtils;
 

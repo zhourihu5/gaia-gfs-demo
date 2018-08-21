@@ -2,7 +2,7 @@ package com.longfor.daenerys3.demo.web.service.impl;
 
 import com.github.pagehelper.PageInfo;
 import com.google.common.base.Preconditions;
-import com.longfor.daenerys3.demo.client.EnvDTO;
+import com.longfor.daenerys3.demo.client.dto.EnvDTO;
 import com.longfor.daenerys3.demo.web.repo.EnvRepo;
 import com.longfor.daenerys3.demo.web.repo.dao.condition.EnvPaginateCondition;
 import com.longfor.daenerys3.demo.web.service.EnvService;
