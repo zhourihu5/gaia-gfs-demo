@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 /**
  * @author shanhonghao
  * @since 2018-08-17 11:12
@@ -24,5 +26,8 @@ public class EnvDTO {
     private String createBy;
     @ApiModelProperty("修改者")
     private String updateBy;
-
+    @ApiModelProperty("创建时间")
+    private Date createTime;
+    @ApiModelProperty("修改时间")
+    private Date updateTime;
 }

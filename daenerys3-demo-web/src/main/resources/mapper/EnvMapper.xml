@@ -5,7 +5,7 @@
         name, description, create_by, update_by
     </sql>
     <sql id="COLS_ALL">
-        id, <include refid="COLS_INSERT"/>
+        id, name, description, create_by createBy, update_by updateBy, create_time createTime, update_time updateTime
     </sql>
 
     <select id="paginate" resultType="Env">

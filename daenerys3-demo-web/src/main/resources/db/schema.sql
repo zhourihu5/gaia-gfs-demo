@@ -3,5 +3,7 @@ CREATE TABLE IF NOT EXISTS env (
   name VARCHAR (100),
   description varchar(100),
   create_by varchar(100),
-  update_by varchar(100)
+  update_by varchar(100),
+  create_time timestamp not null,
+  update_time timestamp not null
 );
