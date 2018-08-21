@@ -14,7 +14,7 @@
 * [redis 多数据源](docs/redis_multi_datasources.md)
 * [基于 swagger 的自动api文档生成](docs/swagger.md)
 * [统一异常处理](docs/exception_handler.md)
-* [统一 matrics](docs/matrics.md)
+* [统一 metrics](docs/metrics.md)
 
 ## TODO
 
