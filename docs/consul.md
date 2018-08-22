@@ -16,8 +16,9 @@ demo-web 和 demo-consumer 使用 consul 时, 先添加依赖
 
 ```xml
 <dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+    <groupId>com.longfor.daenerys3</groupId>
+    <artifactId>daenerys3-web-consul</artifactId>
+    <version>${daenerys3.version}</version>
 </dependency>
 ```
 

@@ -75,6 +75,7 @@ longfor:
       datasource:
         master:
           #默认数据源
+          type: com.alibaba.druid.pool.DruidDataSource
           driver-class-name: org.h2.Driver
           url: jdbc:h2:mem:siberia;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
           username: sa
@@ -96,6 +97,7 @@ longfor:
             remove-abandoned-timeout-millis: 500000
             web-stat-filter-exclusions: '*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*,/download/*,/wj/*,/assets/*'
         custom01:
+          type: com.zaxxer.hikari.HikariDataSource
           driver-class-name: org.h2.Driver
           url: jdbc:h2:mem:siberia;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
           username: sa
