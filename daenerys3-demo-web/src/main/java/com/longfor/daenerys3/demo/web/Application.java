@@ -10,7 +10,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
  * @author shanhonghao
  * @since 2018-08-15 15:20
  */
-@SpringBootApplication(scanBasePackages = "com.longfor")
+@SpringBootApplication
 @EnableDiscoveryClient
 @Slf4j
 public class Application extends SpringApplication {

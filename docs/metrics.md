@@ -60,7 +60,6 @@ longfor:
     metrics:
       prometheus:
         enabled: true # default false
-        endpoint: /prometheus # 暴露的 servlet path, default /prometheusMetrics, 注意是在 server.port 而不是 management.port
 ```
 
 使用 [http://127.0.0.1:8080/prometheus](http://127.0.0.1:8080/prometheus) 进行访问
