@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.longfor.daenerys3.core.response.BaseResponse;
 import com.longfor.daenerys3.demo.client.dto.EnvDTO;
 import com.longfor.daenerys3.demo.web.service.EnvService;
+import com.longfor.daenerys3.web.core.ApiVersion;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -24,6 +25,7 @@ import java.util.Optional;
 @Api(value = "env 相关API", tags = {"env"})
 @RestController
 @RequestMapping("api/envs")
+@ApiVersion(1)
 public class EnvController {
 
     @Resource
@@ -50,6 +52,7 @@ public class EnvController {
     @Timed
     @ApiOperation(value = "查询指定id的环境信息", notes = "curl -X GET \"http://127.0.0.1:8080/api/envs/1\" -H \"accept: application/json;charset=UTF-8\"")
     @GetMapping(value = "{envId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ApiVersion(2)
     public BaseResponse<EnvDTO> loadEnvById(
             @ApiParam(value = "环境id", required = true)
             @Valid @NotNull @Min(1)

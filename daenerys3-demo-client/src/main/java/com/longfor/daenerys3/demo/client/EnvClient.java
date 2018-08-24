@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient("daenerys3-demo-web")
 public interface EnvClient {
 
-    String PREFIX = "api/envs";
+    String PREFIX = "v1/api/envs";
 
     @ApiOperation(value = "分页获取环境列表", notes = "curl -X GET \"http://127.0.0.1:8080/api/envs?pageNum=0&pageSize=10\" -H \"accept: application/json;charset=UTF-8\"")
     @RequestMapping(value = PREFIX + "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
