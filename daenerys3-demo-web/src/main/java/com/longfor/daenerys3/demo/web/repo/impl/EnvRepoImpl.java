@@ -14,6 +14,7 @@ import com.longfor.daenerys3.demo.web.repo.dao.mapper.EnvMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.util.Pool;
 
 import javax.annotation.Resource;
@@ -38,14 +39,20 @@ public class EnvRepoImpl implements EnvRepo {
     @LFAssignDataSource("custom01")
     public Optional<EnvDTO> loadEnvById(Integer envId) {
         String redisKey = redisKey(envId);
-        String envJson = RedisHelper.doRedis(jedis -> jedis.get(redisKey), demoRedis);
-        if (envJson == null) {
-            Env env = envMapper.selectByPrimaryKey(envId);
-            return Optional.ofNullable(EnvConvertor.toDTO(env));
-        } else {
-            Env env = JSON.parseObject(envJson, Env.class);
-            return Optional.ofNullable(EnvConvertor.toDTO(env));
+        Env env = null;
+        try {
+            String envJson = RedisHelper.doRedis(jedis -> jedis.get(redisKey), demoRedis);
+            if (envJson != null) {
+                env = JSON.parseObject(envJson, Env.class);
+            }
+        } catch (JedisConnectionException e) {
+            log.warn("Connect redis failed. {}", e.getMessage());
         }
+
+        if (env == null) {
+            env = envMapper.selectByPrimaryKey(envId);
+        }
+        return Optional.ofNullable(EnvConvertor.toDTO(env));
     }
 
     @Override
