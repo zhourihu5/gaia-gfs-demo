@@ -1,14 +1,21 @@
-server.port: 8081
-
+# ===================================================================
+# springboot标准配置
+# ===================================================================
 spring:
-  application:
-    name: daenerys3-demo-consumer
-  cloud:
-    consul:
-      host: 127.0.0.1
-      port: 8500
-      discovery:
-        register: true
-        serverName: daenerys3-web-consumer
-        healthCheckInterval: 5s
-        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  profiles:
+    active: dev
+  mvc:
+    favicon:
+      enabled: false
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+logging:
+  level:
+    ROOT: WARN
+    com.longfor: DEBUG
+
+

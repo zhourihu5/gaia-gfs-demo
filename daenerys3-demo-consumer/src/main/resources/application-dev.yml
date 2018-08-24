@@ -1,0 +1,13 @@
+server.port: 8081
+
+spring:
+  application:
+    name: daenerys3-demo-consumer
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        register: true
+        serverName: daenerys3-web-consumer
+        healthCheckInterval: 5s

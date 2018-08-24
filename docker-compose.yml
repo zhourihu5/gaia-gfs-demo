@@ -1,0 +1,56 @@
+version: '2'
+services:
+
+  mysql:
+    image: mysql:5.7
+    ports:
+    - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: demo
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+    restart: always
+
+  redis:
+    image: redis:latest
+    ports:
+    - 6379:6379
+    restart: always
+
+  consul:
+    image: consul:latest
+    ports:
+    - 8500:8500
+    restart: always
+
+  daenerys3-demo-web:
+    image: nexus.longhu.net:8081/longfor/daenerys3-demo-web:1.0.0-SNAPSHOT
+    environment:
+      SERVER_PORT: 8080
+      MANAGEMENT_PORT: 9980
+      MYSQL_URL: "jdbc:mysql://mysql:3306/demo?useUnicode=true&characterEncoding=UTF-8&toReconnect=true&verifyServerCertificate=false"
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      CONSUL_HOST: consul
+      CONSUL_PORT: 8500
+    ports:
+    - 8080:8080
+    - 9980:9980
+    links:
+    - mysql
+    - consul
+    - redis
+
+  daenerys3-demo-consumer:
+    image: nexus.longhu.net:8081/longfor/daenerys3-demo-consumer:1.0.0-SNAPSHOT
+    environment:
+      SERVER_PORT: 8081
+      CONSUL_HOST: consul
+      CONSUL_PORT: 8500
+    ports:
+    - 8081:8081
+    links:
+    - consul

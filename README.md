@@ -10,6 +10,36 @@
 * daenerys3-demo-client (以下简称 client) 是 web 定义的一组调用的 sdk, 便于其它服务去调用自己, 只有两个代码文件: xxxDTO用于描述传输对象, xxxClient 用于定义调用接口.
 * daenerys3-demo-consumer (以下简称 consumer) 通过 web 提供的 client, 调用 web 提供的服务.
 
+## Quick Start
+
+项目启动依赖如下组件
+
+1. jdk 1.8
+1. maven 3.3.9+
+1. consul (默认 http://127.0.0.1:8500)
+1. mysql (默认 127.0.0.1:3306 root/root)
+1. redis (默认 127.0.0.1:6379)
+
+### 本地环境启动
+
+环境配置信息可在 项目的 application.yml 或 application-dev.yml 中修改
+
+```bash
+mvn clean package -U
+nohup java -jar daenerys3-demo-consumer/target/daenerys3-demo-consumer.jar &
+nohup java -jar daenerys3-demo-web/target/daenerys3-demo-web.jar & 
+```
+
+### docker 启动
+
+```bash
+mvn clean package -U
+pushd daenerys3-demo-consumer && mvn docker:build && popd
+pushd daenerys3-demo-web && mvn docker:build && popd
+docker-compose up
+```
+
+
 项目展示了框架赋予的一些功能:
 
 * [基于 consul 的服务发现](docs/consul.md)

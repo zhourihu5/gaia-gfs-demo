@@ -30,7 +30,6 @@ spring:
         register: true
         serverName: daenerys3-web-demo
         healthCheckInterval: 5s
-        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
 
 
 # mybatis 配置
