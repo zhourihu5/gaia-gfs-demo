@@ -8,7 +8,7 @@ spring-boot 默认支持单 datasource, 显然无法满足我们的需要
 ## 约定
 
 * 本框架只做 `切换数据源` 这件核心的事情, 并不限制你的具体操作, 切换了数据源可以做任何CRUD.
-* 默认的数据源名称为 `master`, 你可以通过 `longfor.data.dynamic.primary` 修改.
+* 默认的数据源名称为 `master`, 你可以通过 `longfor.data.dynamic.db.primary` 修改.
 * 方法上的注解优先于类上注解
 
 ## 用法
@@ -46,58 +46,59 @@ longfor:
   data:
     #多数据源配置
     dynamic:
-      primary: master
-      datasource:
-        master:
-          #默认数据源
-          type: com.alibaba.druid.pool.DruidDataSource
-          driver-class-name: org.h2.Driver
-          url: jdbc:h2:mem:siberia;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-          username: sa
-          password:
-          druid:
-            filters: stat
-            max-active: 20
-            initial-size: 1
-            max-wait: 30000
-            min-idle: 1
-            time-between-eviction-runs-millis: 60000
-            min-evictable-idle-time-millis: 300000
-            test-while-idle: true
-            test-on-borrow: false
-            test-on-return: false
-            pool-prepared-statements: false
-            max-open-prepared-statements: -1
-            remove-abandoned: true
-            remove-abandoned-timeout-millis: 500000
-            web-stat-filter-exclusions: '*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*,/download/*,/wj/*,/assets/*'
-        custom01:
-          type: com.zaxxer.hikari.HikariDataSource
-          driver-class-name: org.h2.Driver
-          url: jdbc:h2:mem:siberia;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-          username: sa
-          password:
-          hikari:
-            #控制从池返回的连接的默认自动提交行为。默认值：true
-            auto-commit: true
-            #客户端等待连接的最大毫秒数。如果在没有可用连接的情况下超过此时间，则会抛出SQLException。默认值：30000
-            connection-timeout: 10000
-            #此属性控制允许连接在池中闲置的最长时间。此设置仅适用于minimumIdle定义为小于maximumPoolSize。默认值：600000（10分钟）
-            idle-timeout: 600000
-            #此属性控制池中连接的最大生存期。默认值：1800000（30分钟）
-            max-lifetime: 1800000
-            #该属性控制HikariCP尝试在池中维护的最小空闲连接数。默认值：与maximumPoolSize相同
-            minimum-idle: 10
-            #此属性控制池允许达到的最大大小，包括空闲和正在使用的连接。默认值：10
-            maximum-pool-size: 10
-        custom02:
-          driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/mysql?useUnicode=true&characterEncoding=UTF8
-          username: root
-          password: root
+      db: 
+        primary: master
+        datasource:
+          master:
+            #默认数据源
+            type: com.alibaba.druid.pool.DruidDataSource
+            driver-class-name: org.h2.Driver
+            url: jdbc:h2:mem:siberia;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+            username: sa
+            password:
+            druid:
+              filters: stat
+              max-active: 20
+              initial-size: 1
+              max-wait: 30000
+              min-idle: 1
+              time-between-eviction-runs-millis: 60000
+              min-evictable-idle-time-millis: 300000
+              test-while-idle: true
+              test-on-borrow: false
+              test-on-return: false
+              pool-prepared-statements: false
+              max-open-prepared-statements: -1
+              remove-abandoned: true
+              remove-abandoned-timeout-millis: 500000
+              web-stat-filter-exclusions: '*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*,/download/*,/wj/*,/assets/*'
+          custom01:
+            type: com.zaxxer.hikari.HikariDataSource
+            driver-class-name: org.h2.Driver
+            url: jdbc:h2:mem:siberia;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+            username: sa
+            password:
+            hikari:
+              #控制从池返回的连接的默认自动提交行为。默认值：true
+              auto-commit: true
+              #客户端等待连接的最大毫秒数。如果在没有可用连接的情况下超过此时间，则会抛出SQLException。默认值：30000
+              connection-timeout: 10000
+              #此属性控制允许连接在池中闲置的最长时间。此设置仅适用于minimumIdle定义为小于maximumPoolSize。默认值：600000（10分钟）
+              idle-timeout: 600000
+              #此属性控制池中连接的最大生存期。默认值：1800000（30分钟）
+              max-lifetime: 1800000
+              #该属性控制HikariCP尝试在池中维护的最小空闲连接数。默认值：与maximumPoolSize相同
+              minimum-idle: 10
+              #此属性控制池允许达到的最大大小，包括空闲和正在使用的连接。默认值：10
+              maximum-pool-size: 10
+          custom02:
+            driver-class-name: com.mysql.jdbc.Driver
+            url: jdbc:mysql://localhost:3306/mysql?useUnicode=true&characterEncoding=UTF8
+            username: root
+            password: root
 ```
 
-这里定义了 3 个数据源, 并通过 `longfor.data.dynamic.primary` 指定 master 为默认数据源.
+这里定义了 3 个数据源, 并通过 `longfor.data.dynamic.db.primary` 指定 master 为默认数据源.
 每个数据源, 通过 `type` 来指定使用的连接池. 
 更多关于连接池的配置, 参考 `DruidDataSourceProperties.java` 和 `HikariDataSourceProperties.java`.
 custom02 并没有指定连接池, 系统会默认使用 druid(前提是 maven引入了 druid依赖, 如果没有引入, 则不适用连接池).

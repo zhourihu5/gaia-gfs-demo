@@ -45,6 +45,11 @@
             </dependency>
             <dependency>
                 <groupId>com.longfor.daenerys3</groupId>
+                <artifactId>daenerys3-data-redis</artifactId>
+                <version>${daenerys3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.longfor.daenerys3</groupId>
                 <artifactId>daenerys3-web-core</artifactId>
                 <version>${daenerys3.version}</version>
             </dependency>
@@ -73,6 +78,12 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
 
             <dependency>

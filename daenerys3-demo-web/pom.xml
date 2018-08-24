@@ -29,6 +29,10 @@
         </dependency>
         <dependency>
             <groupId>com.longfor.daenerys3</groupId>
+            <artifactId>daenerys3-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.longfor.daenerys3</groupId>
             <artifactId>daenerys3-web-metrics</artifactId>
         </dependency>
         <dependency>
@@ -68,6 +72,11 @@
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
         </dependency>
 
         <dependency>
