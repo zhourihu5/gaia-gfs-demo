@@ -73,3 +73,6 @@ tags
 *.log
 .logs
 
+## maven release plugin
+pom.xml.releaseBackup
+release.properties
