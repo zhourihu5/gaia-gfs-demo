@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>daenerys3-demo</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <scm>
@@ -20,7 +20,7 @@
     </scm>
 
     <properties>
-        <daenerys3.version>1.0.0</daenerys3.version>
+        <daenerys3.version>1.0.1-SNAPSHOT</daenerys3.version>
         <h2.version>1.4.192</h2.version>
         <mysql.version>5.1.46</mysql.version>
     </properties>
