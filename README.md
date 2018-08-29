@@ -13,6 +13,7 @@
 
 项目展示了框架赋予的一些功能:
 
+* [toString 数据脱敏](docs/desensitization.md)
 * [基于 consul 的服务发现](docs/consul.md)
 * [基于 feignclient 的接口调用](docs/feignclient.md)
 * [mybatis 的自动 mapper](docs/mybatis_mapper.md)
