@@ -20,6 +20,7 @@
         <dependency>
             <groupId>com.longfor.daenerys3</groupId>
             <artifactId>daenerys3-demo-client</artifactId>
+            <version>${daenerys3-demo-client.version}</version>
         </dependency>
         <dependency>
             <groupId>com.longfor.daenerys3</groupId>
