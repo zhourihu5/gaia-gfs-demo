@@ -39,7 +39,7 @@
 环境配置信息可在 项目的 application.yml 或 application-dev.yml 中修改
 
 ```bash
-mvn clean package -U
+mvn clean install -U
 nohup java -jar daenerys3-demo-consumer/target/daenerys3-demo-consumer.jar &
 nohup java -jar daenerys3-demo-web/target/daenerys3-demo-web.jar & 
 ```
