@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Api(value = "env 相关API", tags = {"env"})
 @FeignClient(value = "daenerys3-demo-web", configuration = LFFeignConfiguration.class)
-@GraviteeApiKey("fuck")
+@GraviteeApiKey("env-api")
 public interface EnvClient {
 
     @ApiOperation(value = "分页获取环境列表", notes = "curl -X GET \"http://127.0.0.1:8080/v1/api/envs?pageNum=0&pageSize=10\" -H \"accept: application/json;charset=UTF-8\"")

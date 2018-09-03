@@ -15,5 +15,13 @@ spring:
 longfor:
   gravitee:
       apis:
-      - name: fuck
-        apiKey: you
+      - name: env-api
+        apiKey: xxxxxxxxxxxxx
+
+
+feign:
+  client:
+    config:
+      daenerys3-demo-web:
+        connectTimeout: 5000
+        readTimeout: 5000
