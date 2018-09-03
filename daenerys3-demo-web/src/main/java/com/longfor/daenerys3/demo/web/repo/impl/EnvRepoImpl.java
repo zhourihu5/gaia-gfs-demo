@@ -1,10 +1,8 @@
 package com.longfor.daenerys3.demo.web.repo.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.longfor.daenerys3.data.mybatis.datasource.LFAssignDataSource;
-import com.longfor.daenerys3.data.redis.RedisHelper;
 import com.longfor.daenerys3.demo.client.dto.EnvDTO;
 import com.longfor.daenerys3.demo.web.convertor.EnvConvertor;
 import com.longfor.daenerys3.demo.web.repo.EnvRepo;
@@ -12,10 +10,9 @@ import com.longfor.daenerys3.demo.web.repo.dao.condition.EnvPaginateCondition;
 import com.longfor.daenerys3.demo.web.repo.dao.entity.Env;
 import com.longfor.daenerys3.demo.web.repo.dao.mapper.EnvMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.exceptions.JedisConnectionException;
-import redis.clients.util.Pool;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -33,26 +30,34 @@ public class EnvRepoImpl implements EnvRepo {
     @Resource
     private EnvMapper envMapper;
     @Resource
-    private Pool<Jedis> demoRedis;
+    private RedisTemplate demoRedis;
 
     @Override
     @LFAssignDataSource("custom01")
     public Optional<EnvDTO> loadEnvById(Integer envId) {
         String redisKey = redisKey(envId);
-        Env env = null;
-        try {
-            String envJson = RedisHelper.doRedis(jedis -> jedis.get(redisKey), demoRedis);
-            if (envJson != null) {
-                env = JSON.parseObject(envJson, Env.class);
-            }
-        } catch (JedisConnectionException e) {
-            log.warn("Connect redis failed. {}", e.getMessage());
-        }
+        Env env = loadInCache(redisKey);
 
         if (env == null) {
             env = envMapper.selectByPrimaryKey(envId);
+            if (env != null) {
+                cacheEnv(redisKey, env);
+            }
         }
         return Optional.ofNullable(EnvConvertor.toDTO(env));
+    }
+
+    private Env loadInCache(String redisKey) {
+        try {
+            return (Env) demoRedis.opsForValue().get(redisKey);
+        } catch (JedisConnectionException e) {
+            log.warn("Connect redis failed. {}", e.getMessage());
+            return null;
+        }
+    }
+
+    private void cacheEnv(String redisKey, Env env) {
+        demoRedis.opsForValue().set(redisKey, env);
     }
 
     @Override

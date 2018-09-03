@@ -3,8 +3,6 @@
 ---
 
 支持更方便的使用redis服务.
-之所以没有采用spring给的 template 方案, 是感觉整体过重, 不够灵活.
-kcb-data-redis 在直接提供 jedis 作为直接操作的对象以保证最大灵活性的基础上, 解决了连接池的资源申请与释放工作.
 
 ## 用法
 
@@ -18,34 +16,75 @@ maven pom.xml 中添加依赖
 </dependency>
 ``` 
 
-需要开发人员自己配置JedisPool 或 JedisSentinelPool
+配置文件中加入如下信息
 
 ```yaml
-longfor.data.dynamic.redis:
-  demoSentinel:
-    database: 10
-    minIdle: 50
-    maxTotal: 50
-    mastername: upp_redis
-    timeout: 2000
-    sentinel: 10.214.168.103:26380,10.214.168.104:26380,10.214.168.105:26380
-  demoRedis:
-    database: 10
-    minIdle: 50
-    maxTotal: 50
-    timeout: 2000
-    host: 127.0.0.1
-    port: 3389
+longfor:
+  data:
+    dynamic:
+      redis:      
+       connection:
+         demoRedis:
+           database: 10
+           timeout: 2000
+           host: 127.0.0.1
+           port: 6379
+           pool:
+             minIdle: 50
+             maxActive: 50
+```
+
+更多的配置信息, 请参考 `org.springframework.boot.autoconfigure.data.redis.RedisProperties`.
+
+还需要创建一个 RedicConfig.java
+
+```java
+@Configuration
+public class RedisConfig {
+
+    @Resource
+    private DynamicRedisProvider dynamicRedisProvider;
+
+    @Bean(name = "demoRedis")
+    public RedisTemplate demoRedis() {
+        StringRedisTemplate template = new StringRedisTemplate(dynamicRedisProvider.loadRedis().get("demoRedis"));
+        JacksonSerializer.setJacksonSerializer(template);
+        return template;
+    }
+}
+```
+
+通过 beanName 我们可以支持多个 redis 数据源.
+
+我们定义了一组redis 的 jackson 序列化方案, 可以直接通过 JacksonSerializer.setJacksonSerializer 配置.
+
+```java
+public class JacksonSerializer {
+    public static void setJacksonSerializer(RedisTemplate<String, String> template) {
+        template.setDefaultSerializer(new GenericJackson2JsonRedisSerializer());
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setHashKeySerializer(new GenericJackson2JsonRedisSerializer());
+        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+    }
+}
 ```
 
 调用方法如下
 ```java
 
 @Resource
-private Pool<Jedis> demoSentinel;
-@Resource
-private Pool<Jedis> demoRedis;
+private RedisTemplate demoRedis;
 
-String value = RedisHelper.doRedis(jedis -> jedis.get("key"), demoRedis);
+private Env loadInCache(String redisKey) {
+    try {
+        return (Env) demoRedis.opsForValue().get(redisKey);
+    } catch (JedisConnectionException e) {
+        log.warn("Connect redis failed. {}", e.getMessage());
+        return null;
+    }
+}
+
+private void cacheEnv(String redisKey, Env env) {
+    demoRedis.opsForValue().set(redisKey, env);
+}
 ```
-

@@ -121,10 +121,12 @@ longfor:
             username: root
             password: root
       redis:
-        demoRedis:
-          database: 10
-          minIdle: 50
-          maxTotal: 50
-          timeout: 2000
-          host: 127.0.0.1
-          port: 6379
+        connection:
+          demoRedis:
+            database: 10
+            timeout: 2000
+            host: 127.0.0.1
+            port: 6379
+            pool:
+              minIdle: 50
+              maxActive: 50
