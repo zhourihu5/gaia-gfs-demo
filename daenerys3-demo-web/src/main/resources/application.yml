@@ -36,3 +36,4 @@ endpoints:
   info:
     enabled: true
     sensitive: false
+
