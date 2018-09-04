@@ -10,6 +10,9 @@ import org.springframework.beans.BeanUtils;
  */
 public class EnvConvertor {
 
+    private EnvConvertor() {
+    }
+
     public static EnvDTO toDTO(Env po) {
         if (po == null) {
             return null;

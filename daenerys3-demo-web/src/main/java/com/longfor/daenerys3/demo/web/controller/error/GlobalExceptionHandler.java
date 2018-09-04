@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = LFBizException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public BaseResponse LFBizExceptionHandler(HttpServletRequest request, Exception e) {
+    public BaseResponse lfBizExceptionHandlel(HttpServletRequest request, Exception e) {
         log.warn(e.getMessage());
         return new BaseResponse(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()), e.getMessage(), null);
     }
@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = NoHandlerFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
-    public BaseResponse defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+    public BaseResponse defaultErrorHandler(HttpServletRequest req, Exception e) {
         return new BaseResponse(String.valueOf(HttpStatus.NOT_FOUND.value()), String.format("%s not found", req.getContextPath()), null);
     }
 
