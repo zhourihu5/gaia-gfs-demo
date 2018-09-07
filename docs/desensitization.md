@@ -10,7 +10,7 @@ maven pom.xml 中添加 依赖
 <dependency>
     <groupId>com.longfor.daenerys3</groupId>
     <artifactId>daenerys3-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${daenerys3.version}</version>
 </dependency>
 ``` 
 

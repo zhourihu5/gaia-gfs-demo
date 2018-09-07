@@ -46,8 +46,8 @@ ENTRYPOINT ["/bin/sh", "-c", \
 -Dlongfor.data.dynamic.db.datasource.custom02.url=${MYSQL_URL} \
 -Dlongfor.data.dynamic.db.datasource.custom02.username=${MYSQL_USERNAME} \
 -Dlongfor.data.dynamic.db.datasource.custom02.password=${MYSQL_PASSWORD} \
--Dlongfor.data.dynamic.redis.demoRedis.host=${REDIS_HOST} \
--Dlongfor.data.dynamic.redis.demoRedis.port=${REDIS_PORT} \
+-Dlongfor.data.dynamic.redis.connection.demoRedis.host=${REDIS_HOST} \
+-Dlongfor.data.dynamic.redis.connection.demoRedis.port=${REDIS_PORT} \
 -Djava.security.egd=file:/dev/./urandom \
 -jar ${APP_FOLDER}/${JAR_NAME} \
 --logging.path=${LOGS_FOLDER}"]

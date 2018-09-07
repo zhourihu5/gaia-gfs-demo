@@ -1,7 +1,7 @@
 package com.longfor.daenerys3.demo.web.controller;
 
 import com.longfor.daenerys3.core.response.BaseResponse;
-import com.longfor.daenerys3.web.core.config.GitVersionConfig;
+import com.longfor.daenerys3.web.core.config.GitVersionProperties;
 import com.longfor.daenerys3.web.core.dto.GitVersionDTO;
 import com.longfor.daenerys3.web.core.mapper.GitVersionMapper;
 import org.springframework.http.MediaType;
@@ -20,12 +20,12 @@ import javax.annotation.Resource;
 public class GitController {
 
     @Resource
-    private GitVersionConfig gitVersionConfig;
+    private GitVersionProperties gitVersionProperties;
     @Resource
     private GitVersionMapper gitVersionMapper;
 
     @GetMapping(value = "info", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public BaseResponse<GitVersionDTO> fetchGitInfo() {
-        return new BaseResponse<>(gitVersionMapper.toDTO(this.gitVersionConfig));
+        return new BaseResponse<>(gitVersionMapper.toDTO(this.gitVersionProperties));
     }
 }

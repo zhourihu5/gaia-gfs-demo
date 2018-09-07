@@ -26,6 +26,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/envs")
 @ApiVersion(1)
+@ApiVersion(3)
 public class EnvController {
 
     @Resource

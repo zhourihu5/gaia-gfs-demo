@@ -16,6 +16,6 @@ spring:
 logging:
   level:
     ROOT: WARN
-    com.longfor: DEBUG
+    com.longfor: WARN
 
 
