@@ -1,7 +1,7 @@
 package com.longfor.gaia.gfs.demo.web.controller.error;
 
 import com.longfor.gaia.gfs.core.exception.LFBizException;
-import com.longfor.gaia.gfs.core.bean.BaseResponse;
+import com.longfor.gaia.gfs.core.response.BaseResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

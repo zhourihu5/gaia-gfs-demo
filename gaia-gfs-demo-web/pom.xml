@@ -4,8 +4,9 @@
 
     <parent>
         <groupId>com.longfor.gaia.gfs</groupId>
-        <artifactId>gaia-gfs-demo</artifactId>
+        <artifactId>gaia-gfs-web-parent</artifactId>
         <version>1.0.1-SNAPSHOT</version>
+        <relativePath></relativePath>
     </parent>
 
     <artifactId>gaia-gfs-demo-web</artifactId>
@@ -14,38 +15,27 @@
 
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>
+
+        <gaia-gfs.version>1.0.1-SNAPSHOT</gaia-gfs.version>
+        <mysql.version>5.1.46</mysql.version>
+        <h2.version>1.4.192</h2.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.longfor.gaia.gfs</groupId>
             <artifactId>gaia-gfs-demo-client</artifactId>
-            <version>${gaia-gfs-demo-client.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-web-core</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.longfor.gaia.gfs</groupId>
             <artifactId>gaia-gfs-data-mybatis</artifactId>
+            <version>${gaia-gfs.version}</version>
         </dependency>
         <dependency>
             <groupId>com.longfor.gaia.gfs</groupId>
             <artifactId>gaia-gfs-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-web-metrics</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-web-consul</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
+            <version>${gaia-gfs.version}</version>
         </dependency>
 
         <dependency>
@@ -56,19 +46,17 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.ecwid.consul</groupId>
-            <artifactId>consul-api</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -84,13 +72,9 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>

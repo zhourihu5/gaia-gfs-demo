@@ -1,6 +1,6 @@
 package com.longfor.gaia.gfs.demo.web.controller;
 
-import com.longfor.gaia.gfs.core.bean.BaseResponse;
+import com.longfor.gaia.gfs.core.response.BaseResponse;
 import com.longfor.gaia.gfs.web.core.config.GitVersionProperties;
 import com.longfor.gaia.gfs.web.core.dto.GitVersionDTO;
 import com.longfor.gaia.gfs.web.core.mapper.GitVersionMapper;

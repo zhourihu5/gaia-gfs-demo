@@ -22,7 +22,9 @@ spring:
         web-allow-others: true #remote visit
         trace: true
       path: /h2-console #console url
+  cloud:
     consul:
+      enabled: true
       host: 127.0.0.1
       port: 8500
       discovery:

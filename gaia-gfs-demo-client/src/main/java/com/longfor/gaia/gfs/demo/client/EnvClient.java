@@ -1,7 +1,7 @@
 package com.longfor.gaia.gfs.demo.client;
 
 import com.longfor.gaia.gfs.core.bean.PageInfo;
-import com.longfor.gaia.gfs.core.bean.BaseResponse;
+import com.longfor.gaia.gfs.core.response.BaseResponse;
 import com.longfor.gaia.gfs.demo.client.dto.EnvDTO;
 import com.longfor.gaia.gfs.web.core.ApiVersion;
 import com.longfor.gaia.gfs.web.feign.LFFeignClient;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @since 2018-08-16 18:16
  */
 @Api(value = "env 相关API", tags = {"env"})
-@LFFeignClient(value = "daenerys3-demo-web", app="daenerys3", configuration = LFFeignConfiguration.class)
+@LFFeignClient(value = "gaia-gfs-demo-web", app="gaia-gfs-demo", configuration = LFFeignConfiguration.class)
 public interface EnvClient {
 
     @ApiOperation(value = "分页获取环境列表", notes = "curl -X GET \"http://127.0.0.1:8080/v1/api/envs?pageNum=0&pageSize=10\" -H \"accept: application/json;charset=UTF-8\"")

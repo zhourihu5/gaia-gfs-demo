@@ -4,8 +4,9 @@
 
     <parent>
         <groupId>com.longfor.gaia.gfs</groupId>
-        <artifactId>gaia-gfs-demo</artifactId>
+        <artifactId>gaia-gfs-web-parent</artifactId>
         <version>1.0.1-SNAPSHOT</version>
+        <relativePath></relativePath>
     </parent>
 
     <artifactId>gaia-gfs-demo-consumer</artifactId>
@@ -20,29 +21,12 @@
         <dependency>
             <groupId>com.longfor.gaia.gfs</groupId>
             <artifactId>gaia-gfs-demo-client</artifactId>
-            <version>${gaia-gfs-demo-client.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-web-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-web-consul</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-web-swagger</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ecwid.consul</groupId>
-            <artifactId>consul-api</artifactId>
         </dependency>
     </dependencies>
 

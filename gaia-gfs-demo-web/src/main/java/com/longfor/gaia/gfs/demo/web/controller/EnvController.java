@@ -2,7 +2,7 @@ package com.longfor.gaia.gfs.demo.web.controller;
 
 import com.codahale.metrics.annotation.Timed;
 import com.github.pagehelper.PageInfo;
-import com.longfor.gaia.gfs.core.bean.BaseResponse;
+import com.longfor.gaia.gfs.core.response.BaseResponse;
 import com.longfor.gaia.gfs.demo.client.dto.EnvDTO;
 import com.longfor.gaia.gfs.demo.web.service.EnvService;
 import com.longfor.gaia.gfs.web.core.ApiVersion;

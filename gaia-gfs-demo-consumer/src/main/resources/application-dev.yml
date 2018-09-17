@@ -2,25 +2,18 @@ server.port: 8081
 
 spring:
   application:
-    name: daenerys3-demo-consumer
-  cloud:
-    consul:
-      host: 127.0.0.1
-      port: 8500
-      discovery:
-        register: true
-        serverName: daenerys3-web-consumer
-        healthCheckInterval: 5s
+    name: gaia-gfs-demo-consumer
 
 longfor:
   web:
     mockserver:
       enabled: true
-  gravitee:
-      apis:
-      - name: env-api
-        apiKey: xxxxxxxxxxxxx
-
+    feign:
+      clients:
+        gaia-gfs-demo:
+          gaia-gfs-demo-web:
+            url: http://uat.api.longfor.net/gaia-gfs-demo-web
+            apikey: xxxxxxxx
 
 feign:
   client:

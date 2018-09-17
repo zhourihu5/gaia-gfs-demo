@@ -4,8 +4,9 @@
 
     <parent>
         <groupId>com.longfor.gaia.gfs</groupId>
-        <artifactId>gaia-gfs-demo</artifactId>
+        <artifactId>gaia-gfs-web-parent</artifactId>
         <version>1.0.1-SNAPSHOT</version>
+        <relativePath></relativePath>
     </parent>
 
     <artifactId>gaia-gfs-demo-client</artifactId>
@@ -13,22 +14,6 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-web-swagger</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-web-feign</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-web-mock</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
