@@ -70,7 +70,7 @@ public class EnvRepoImpl implements EnvRepo {
     }
 
     private String redisKey(Integer envId) {
-        return String.format("daenerys3:env:id:%s", envId);
+        return String.format("gfs:env:id:%s", envId);
     }
 
 }

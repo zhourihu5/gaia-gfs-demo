@@ -17,9 +17,9 @@ maven 添加依赖
 
 ```xml
 <dependency>
-    <groupId>com.longfor.daenerys3</groupId>
-    <artifactId>daenerys3-data-mybatis</artifactId>
-    <version>${daenerys3.version}</version>
+    <groupId>com.longfor.gfs</groupId>
+    <artifactId>gfs-data-mybatis</artifactId>
+    <version>${gfs.version}</version>
 </dependency>
 ```
 

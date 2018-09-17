@@ -16,9 +16,9 @@ demo-web 和 demo-consumer 使用 consul 时, 先添加依赖
 
 ```xml
 <dependency>
-    <groupId>com.longfor.daenerys3</groupId>
-    <artifactId>daenerys3-web-consul</artifactId>
-    <version>${daenerys3.version}</version>
+    <groupId>com.longfor.gfs</groupId>
+    <artifactId>gfs-web-consul</artifactId>
+    <version>${gfs.version}</version>
 </dependency>
 ```
 
@@ -27,14 +27,14 @@ demo-web 和 demo-consumer 使用 consul 时, 先添加依赖
 ```yaml
 spring:
   application:
-    name: daenerys3-demo-consumer
+    name: gfs-demo-consumer
   cloud:
     consul:
       host: 127.0.0.1
       port: 8500
       discovery:
         register: true
-        serverName: daenerys3-web-consumer
+        serverName: gfs-web-consumer
         healthCheckInterval: 5s
         instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
 ```

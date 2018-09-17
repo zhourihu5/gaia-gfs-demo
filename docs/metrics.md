@@ -15,9 +15,9 @@ maven pom.xml 中添加依赖
 
 ```xml
 <dependency>
-    <teamId>com.longfor.daenerys3</teamId>
-    <artifactId>daenerys3-web-metrics</artifactId>
-    <version>${daenerys3.metrics.version}</version>
+    <teamId>com.longfor.gfs</teamId>
+    <artifactId>gfs-web-metrics</artifactId>
+    <version>${gfs.metrics.version}</version>
 </dependency>
 ```
 

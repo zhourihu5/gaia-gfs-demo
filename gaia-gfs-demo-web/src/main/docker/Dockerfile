@@ -3,7 +3,7 @@ MAINTAINER shanhonghao <i@shanhh.com>
 
 ENV SERVER_PORT 8080
 ENV MANAGEMENT_PORT 9980
-ENV JAR_NAME daenerys3-demo-web.jar
+ENV JAR_NAME gfs-demo-web.jar
 
 ENV CONSUL_HOST: consul
 ENV CONSUL_PORT: 8500

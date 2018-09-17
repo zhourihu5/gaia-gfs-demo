@@ -2,14 +2,14 @@ server.port: 8081
 
 spring:
   application:
-    name: daenerys3-demo-consumer
+    name: gfs-demo-consumer
   cloud:
     consul:
       host: 127.0.0.1
       port: 8500
       discovery:
         register: true
-        serverName: daenerys3-web-consumer
+        serverName: gfs-web-consumer
         healthCheckInterval: 5s
 
 longfor:
@@ -25,6 +25,6 @@ longfor:
 feign:
   client:
     config:
-      daenerys3-demo-web:
+      gfs-demo-web:
         connectTimeout: 5000
         readTimeout: 5000

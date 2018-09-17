@@ -10,9 +10,9 @@ maven pom.xml 中添加依赖
 
 ```xml
 <dependency>
-    <groupId>com.longfor.daenerys3</groupId>
-    <artifactId>daenerys3-data-redis</artifactId>
-    <version>${daenerys3.version}</version>
+    <groupId>com.longfor.gfs</groupId>
+    <artifactId>gfs-data-redis</artifactId>
+    <version>${gfs.version}</version>
 </dependency>
 ``` 
 
