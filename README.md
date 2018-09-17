@@ -62,12 +62,12 @@ docker-compose up
 
 ![](docs/imgs/consul_2.png)
 
-其中 demo(8080) 发布了一组 rest 接口, 如:
+其中 web(8080) 发布了一组 rest 接口, 如:
 
 * http://127.0.0.1:8080/v1/api/envs
 * http://127.0.0.1:8080/v2/api/envs/1
 
-其中 consumer(8081) 则通过 consul 服务发现, 远程调用 web 应用提供的服务, 如:
+其中 consumer(8081) 则通过 rest api, 远程调用 web 应用提供的服务, 如:
 
 * http://127.0.0.1:8081/api/envs/1
 
