@@ -1,0 +1,30 @@
+server.port: 8081
+
+spring:
+  application:
+    name: daenerys3-demo-consumer
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        register: true
+        serverName: daenerys3-web-consumer
+        healthCheckInterval: 5s
+
+longfor:
+  web:
+    mockserver:
+      enabled: true
+  gravitee:
+      apis:
+      - name: env-api
+        apiKey: xxxxxxxxxxxxx
+
+
+feign:
+  client:
+    config:
+      daenerys3-demo-web:
+        connectTimeout: 5000
+        readTimeout: 5000

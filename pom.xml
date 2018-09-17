@@ -3,77 +3,52 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.longfor.daenerys3</groupId>
-        <artifactId>daenerys3-parent</artifactId>
+        <groupId>com.longfor.gaia.gfs</groupId>
+        <artifactId>gaia-gfs-web-parent</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>daenerys3-demo</artifactId>
+    <artifactId>gaia-gfs-demo</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <scm>
-        <connection>scm:git:ssh://git@git.longhu.net:8010/daenerys3/daenerys3-demo.git</connection>
-        <url>http://git.longhu.net/daenerys3/daenerys3-demo</url>
-        <developerConnection>scm:git:ssh://git@git.longhu.net:8010/daenerys3/daenerys3-demo.git</developerConnection>
+        <connection>scm:git:ssh://git@git.longhu.net:8010/gaia/gfs/gaia-gfs-demo.git</connection>
+        <url>http://git.longhu.net/gaia/gfs/gaia-gfs-demo</url>
+        <developerConnection>scm:git:ssh://git@git.longhu.net:8010/gaia/gfs/gaia-gfs-demo.git</developerConnection>
         <tag>v1.0.0</tag>
     </scm>
 
     <properties>
-        <daenerys3.version>1.0.1-SNAPSHOT</daenerys3.version>
-        <daenerys3-demo-client.version>1.0.1-SNAPSHOT</daenerys3-demo-client.version>
+        <gaia-gfs.version>1.0.1-SNAPSHOT</gaia-gfs.version>
+        <gaia-gfs-demo-client.version>1.0.1-SNAPSHOT</gaia-gfs-demo-client.version>
         <h2.version>1.4.192</h2.version>
         <mysql.version>5.1.46</mysql.version>
         <consul-api.version>1.4.0</consul-api.version>
     </properties>
 
     <modules>
-        <module>daenerys3-demo-client</module>
-        <module>daenerys3-demo-web</module>
-        <module>daenerys3-demo-consumer</module>
+        <module>gaia-gfs-demo-client</module>
+        <module>gaia-gfs-demo-web</module>
+        <module>gaia-gfs-demo-consumer</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.longfor.daenerys3</groupId>
-                <artifactId>daenerys3-core</artifactId>
-                <version>${daenerys3.version}</version>
+                <groupId>com.longfor.gaia.gfs</groupId>
+                <artifactId>gaia-gfs-core</artifactId>
+                <version>${gaia-gfs.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.longfor.daenerys3</groupId>
-                <artifactId>daenerys3-data-mybatis</artifactId>
-                <version>${daenerys3.version}</version>
+                <groupId>com.longfor.gaia.gfs</groupId>
+                <artifactId>gaia-gfs-data-mybatis</artifactId>
+                <version>${gaia-gfs.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.longfor.daenerys3</groupId>
-                <artifactId>daenerys3-data-redis</artifactId>
-                <version>${daenerys3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.longfor.daenerys3</groupId>
-                <artifactId>daenerys3-web-core</artifactId>
-                <version>${daenerys3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.longfor.daenerys3</groupId>
-                <artifactId>daenerys3-web-swagger</artifactId>
-                <version>${daenerys3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.longfor.daenerys3</groupId>
-                <artifactId>daenerys3-web-metrics</artifactId>
-                <version>${daenerys3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.longfor.daenerys3</groupId>
-                <artifactId>daenerys3-web-consul</artifactId>
-                <version>${daenerys3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.longfor.daenerys3</groupId>
-                <artifactId>daenerys3-web-feign</artifactId>
-                <version>${daenerys3.version}</version>
+                <groupId>com.longfor.gaia.gfs</groupId>
+                <artifactId>gaia-gfs-data-redis</artifactId>
+                <version>${gaia-gfs.version}</version>
             </dependency>
 
             <dependency>
