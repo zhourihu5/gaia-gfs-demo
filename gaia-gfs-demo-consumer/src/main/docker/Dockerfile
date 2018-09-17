@@ -2,7 +2,7 @@ FROM java:8-jdk-alpine
 MAINTAINER shanhonghao <i@shanhh.com>
 
 ENV SERVER_PORT 8081
-ENV JAR_NAME daenerys3-demo-consumer.jar
+ENV JAR_NAME gfs-demo-consumer.jar
 
 ENV CONSUL_HOST: consul
 ENV CONSUL_PORT: 8500

@@ -27,9 +27,9 @@ maven pom.xml 中添加依赖
 
 ```xml
 <dependency>
-    <groupId>com.longfor.daenerys3</groupId>
-    <artifactId>daenerys3-web-swagger</artifactId>
-    <version>${daenerys3.version}</version>
+    <groupId>com.longfor.gfs</groupId>
+    <artifactId>gfs-web-swagger</artifactId>
+    <version>${gfs.version}</version>
 </dependency>
 ```
 
@@ -40,7 +40,7 @@ longfor:
   web:
     swagger:
       enabled: true
-      description: api docs for daenerys3 demo
+      description: api docs for gfs demo
       basePackage: com.longfor # swagger 将自动扫描该 package下面的的所有 @RequestMapping, default "com.longfor"
       contact:
         name: shanhonghao

@@ -24,8 +24,8 @@ services:
     - 8500:8500
     restart: always
 
-  daenerys3-demo-web:
-    image: nexus.longhu.net:8081/longfor/daenerys3-demo-web:1.0.1-SNAPSHOT
+  gfs-demo-web:
+    image: nexus.longhu.net:8081/longfor/gfs-demo-web:1.0.1-SNAPSHOT
     environment:
       SERVER_PORT: 8080
       MANAGEMENT_PORT: 9980
@@ -44,8 +44,8 @@ services:
     - consul
     - redis
 
-  daenerys3-demo-consumer:
-    image: nexus.longhu.net:8081/longfor/daenerys3-demo-consumer:1.0.1-SNAPSHOT
+  gfs-demo-consumer:
+    image: nexus.longhu.net:8081/longfor/gfs-demo-consumer:1.0.1-SNAPSHOT
     environment:
       SERVER_PORT: 8081
       CONSUL_HOST: consul

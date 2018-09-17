@@ -18,6 +18,6 @@ longfor:
 feign:
   client:
     config:
-      daenerys3-demo-web:
+      gaia-gfs-demo-web:
         connectTimeout: 5000
         readTimeout: 5000

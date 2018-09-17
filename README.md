@@ -1,14 +1,14 @@
-# daenerys3-demo
+# gfs-demo
 
 ---
 
-该项目用于演示基于 daenerys3 开发的案例
+该项目用于演示基于 gfs 开发的案例
 
 大致描述一下项目的调用关系: 
 
-* daenerys3-demo-web (以下简称 web) 是一个 web application, 发布了两组 api (EnvController 和 GitController).
-* daenerys3-demo-client (以下简称 client) 是 web 定义的一组调用的 sdk, 便于其它服务去调用自己, 只有两个代码文件: xxxDTO用于描述传输对象, xxxClient 用于定义调用接口.
-* daenerys3-demo-consumer (以下简称 consumer) 通过 web 提供的 client, 调用 web 提供的服务.
+* gfs-demo-web (以下简称 web) 是一个 web application, 发布了两组 api (EnvController 和 GitController).
+* gfs-demo-client (以下简称 client) 是 web 定义的一组调用的 sdk, 便于其它服务去调用自己, 只有两个代码文件: xxxDTO用于描述传输对象, xxxClient 用于定义调用接口.
+* gfs-demo-consumer (以下简称 consumer) 通过 web 提供的 client, 调用 web 提供的服务.
 
 
 项目展示了框架赋予的一些功能:
@@ -40,25 +40,25 @@
 
 ```bash
 mvn clean install -U
-nohup java -jar daenerys3-demo-consumer/target/daenerys3-demo-consumer.jar &
-nohup java -jar daenerys3-demo-web/target/daenerys3-demo-web.jar & 
+nohup java -jar gfs-demo-consumer/target/gfs-demo-consumer.jar &
+nohup java -jar gfs-demo-web/target/gfs-demo-web.jar & 
 ```
 
 ### docker 启动
 
 ```bash
 mvn clean package -U
-pushd daenerys3-demo-consumer && mvn docker:build && popd
-pushd daenerys3-demo-web && mvn docker:build && popd
+pushd gfs-demo-consumer && mvn docker:build && popd
+pushd gfs-demo-web && mvn docker:build && popd
 docker-compose up
 ```
 
 启动完成后, 我们在 consul 后台 ([http://127.0.0.1:8500/ui/dc1/services](http://127.0.0.1:8500/ui/dc1/services)) 看到一共注册了四个服务:
 
 * consul // consul 自注册
-* daenerys3-demo-web // web 应用
-* daenerys3-demo-web-management // web 应用的管理服务, 随 demo 一起启动在不同的端口上.
-* daenerys3-demo-consumer // consumer 应用, 远程调用 web 应用提供的服务
+* gfs-demo-web // web 应用
+* gfs-demo-web-management // web 应用的管理服务, 随 demo 一起启动在不同的端口上.
+* gfs-demo-consumer // consumer 应用, 远程调用 web 应用提供的服务
 
 ![](docs/imgs/consul_2.png)
 
