@@ -25,8 +25,7 @@ import java.util.Optional;
 @Api(value = "env 相关API", tags = {"env"})
 @RestController
 @RequestMapping("api/envs")
-@ApiVersion(1)
-@ApiVersion(3)
+@ApiVersion({1, 3})
 public class EnvController {
 
     @Resource
