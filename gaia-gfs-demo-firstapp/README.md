@@ -37,6 +37,7 @@ java \
 1. 项目以 8080 端口启动, 同时启动 9980 的管理端口
 1. 默认的 health check url [http://127.0.0.1:9980/health](http://127.0.0.1:9980/health)
 1. 默认支持了 prometheus 监控 [http://127.0.0.1:9980/prometheus](http://127.0.0.1:9980/prometheus)
+1. 默认的 git info url [http://127.0.0.1:9980/gitInfo](http://127.0.0.1:9980/gitInfo)
 
 我们进一步去修改
 
