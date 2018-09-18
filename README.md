@@ -28,8 +28,12 @@
 
 项目启动依赖如下组件
 
+必须项：
 1. jdk 1.8
 1. maven 3.3.9+
+1. nexus (http://nexus.longhu.net:8081/)
+
+非必须项：
 1. consul (默认 http://127.0.0.1:8500)
 1. mysql (默认 127.0.0.1:3306 root/root)
 1. redis (默认 127.0.0.1:6379)
