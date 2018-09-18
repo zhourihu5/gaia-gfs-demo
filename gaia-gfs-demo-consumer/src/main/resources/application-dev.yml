@@ -1,4 +1,5 @@
 server.port: 8081
+management.port: 9981
 
 spring:
   application:

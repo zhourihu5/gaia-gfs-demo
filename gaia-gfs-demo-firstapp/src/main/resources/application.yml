@@ -1,0 +1,13 @@
+server.port: 8080
+management.port: 9980
+
+spring:
+  application:
+    name: gaia-gfs-demo-firstapp
+  cloud:
+    consul:
+      enabled: false
+
+management:
+  security:
+    enabled: false

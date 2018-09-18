@@ -11,6 +11,7 @@
         <module>gaia-gfs-demo-client</module>
         <module>gaia-gfs-demo-web</module>
         <module>gaia-gfs-demo-consumer</module>
+        <module>gaia-gfs-demo-firstapp</module>
     </modules>
 
 </project>
