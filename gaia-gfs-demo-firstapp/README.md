@@ -27,7 +27,7 @@ java \
     -Dserver.port=${SERVER_PORT} \
     -Djava.security.egd=file:/dev/./urandom \
     -jar ${APP_FOLDER}/${JAR_NAME} \
-    --logging.path=${LOGS_FOLDER}"]
+    --logging.path=${LOGS_FOLDER}
 ```
 
 ## 功能
