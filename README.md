@@ -1,4 +1,4 @@
-# gfs-demo
+# gaia-gfs-demo
 
 ---
 
@@ -6,9 +6,9 @@
 
 大致描述一下项目的调用关系: 
 
-* gfs-demo-web (以下简称 web) 是一个 web application, 发布了两组 api (EnvController 和 GitController).
-* gfs-demo-client (以下简称 client) 是 web 定义的一组调用的 sdk, 便于其它服务去调用自己, 只有两个代码文件: xxxDTO用于描述传输对象, xxxClient 用于定义调用接口.
-* gfs-demo-consumer (以下简称 consumer) 通过 web 提供的 client, 调用 web 提供的服务.
+* gaia-gfs-demo-web (以下简称 web) 是一个 web application, 发布了两组 api (EnvController 和 GitController).
+* gaia-gfs-demo-client (以下简称 client) 是 web 定义的一组调用的 sdk, 便于其它服务去调用自己, 只有两个代码文件: xxxDTO用于描述传输对象, xxxClient 用于定义调用接口.
+* gaia-gfs-demo-consumer (以下简称 consumer) 通过 web 提供的 client, 调用 web 提供的服务.
 
 
 项目展示了框架赋予的一些功能:
@@ -28,8 +28,12 @@
 
 项目启动依赖如下组件
 
+必须项：
 1. jdk 1.8
 1. maven 3.3.9+
+1. nexus (http://nexus.longhu.net:8081/)
+
+非必须项：
 1. consul (默认 http://127.0.0.1:8500)
 1. mysql (默认 127.0.0.1:3306 root/root)
 1. redis (默认 127.0.0.1:6379)
@@ -40,25 +44,25 @@
 
 ```bash
 mvn clean install -U
-nohup java -jar gfs-demo-consumer/target/gfs-demo-consumer.jar &
-nohup java -jar gfs-demo-web/target/gfs-demo-web.jar & 
+nohup java -jar gaia-gfs-demo-consumer/target/gaia-gfs-demo-consumer.jar &
+nohup java -jar gaia-gfs-demo-web/target/gaia-gfs-demo-web.jar & 
 ```
 
 ### docker 启动
 
 ```bash
 mvn clean package -U
-pushd gfs-demo-consumer && mvn docker:build && popd
-pushd gfs-demo-web && mvn docker:build && popd
+pushd gaia-gfs-demo-consumer && mvn docker:build && popd
+pushd gaia-gfs-demo-web && mvn docker:build && popd
 docker-compose up
 ```
 
 启动完成后, 我们在 consul 后台 ([http://127.0.0.1:8500/ui/dc1/services](http://127.0.0.1:8500/ui/dc1/services)) 看到一共注册了四个服务:
 
 * consul // consul 自注册
-* gfs-demo-web // web 应用
-* gfs-demo-web-management // web 应用的管理服务, 随 demo 一起启动在不同的端口上.
-* gfs-demo-consumer // consumer 应用, 远程调用 web 应用提供的服务
+* gaia-gfs-demo-web // web 应用
+* gaia-gfs-demo-web-management // web 应用的管理服务, 随 demo 一起启动在不同的端口上.
+* gaia-gfs-demo-consumer // consumer 应用, 远程调用 web 应用提供的服务
 
 ![](docs/imgs/consul_2.png)
 
