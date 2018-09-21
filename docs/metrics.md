@@ -15,7 +15,7 @@ maven pom.xml 中添加依赖
 
 ```xml
 <dependency>
-    <teamId>com.longfor.gfs</teamId>
+    <teamId>com.longfor.gaia.gfs</teamId>
     <artifactId>gfs-web-metrics</artifactId>
     <version>${gfs.metrics.version}</version>
 </dependency>

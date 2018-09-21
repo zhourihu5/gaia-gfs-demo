@@ -8,7 +8,7 @@ maven 添加依赖
 
 ```xml
 <dependency>
-    <groupId>com.longfor.gfs</groupId>
+    <groupId>com.longfor.gaia.gfs</groupId>
     <artifactId>gfs-data-mybatis</artifactId>
     <version>${gfs.version}</version>
 </dependency>
@@ -30,7 +30,7 @@ application.yml 配置中添加
 
 ```
 mybatis:
-  typeAliasesPackage: com.longfor.gfs.demo.web.repo.dao.entity
+  typeAliasesPackage: com.longfor.gaia.gfs.demo.web.repo.dao.entity
   mapperLocations:
   - classpath:mapper/*.xml
 

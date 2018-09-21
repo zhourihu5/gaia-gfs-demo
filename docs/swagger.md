@@ -27,7 +27,7 @@ maven pom.xml 中添加依赖
 
 ```xml
 <dependency>
-    <groupId>com.longfor.gfs</groupId>
+    <groupId>com.longfor.gaia.gfs</groupId>
     <artifactId>gfs-web-swagger</artifactId>
     <version>${gfs.version}</version>
 </dependency>

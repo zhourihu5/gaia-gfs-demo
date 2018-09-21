@@ -16,7 +16,7 @@ demo-web 和 demo-consumer 使用 consul 时, 先添加依赖
 
 ```xml
 <dependency>
-    <groupId>com.longfor.gfs</groupId>
+    <groupId>com.longfor.gaia.gfs</groupId>
     <artifactId>gfs-web-consul</artifactId>
     <version>${gfs.version}</version>
 </dependency>

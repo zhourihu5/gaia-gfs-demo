@@ -17,7 +17,7 @@ maven 添加依赖
 
 ```xml
 <dependency>
-    <groupId>com.longfor.gfs</groupId>
+    <groupId>com.longfor.gaia.gfs</groupId>
     <artifactId>gfs-data-mybatis</artifactId>
     <version>${gfs.version}</version>
 </dependency>
