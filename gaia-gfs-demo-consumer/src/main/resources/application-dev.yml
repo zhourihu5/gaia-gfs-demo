@@ -13,7 +13,7 @@ longfor:
       clients:
         gaia-gfs-demo:
           gaia-gfs-demo-web:
-            url: http://gfs-demo-web:8080
+            url: http://127.0.0.1:8080
             apikey: xxxxxxxx
 
 feign:

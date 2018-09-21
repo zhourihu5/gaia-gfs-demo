@@ -4,6 +4,7 @@ import com.longfor.gaia.gfs.core.response.BaseResponse;
 import com.longfor.gaia.gfs.demo.client.EnvClient;
 import com.longfor.gaia.gfs.demo.client.dto.EnvDTO;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("api/envs")
+@Slf4j
 public class EnvController {
 
     @Resource
@@ -26,6 +28,8 @@ public class EnvController {
     @ApiOperation(value = "分页获取环境列表")
     @GetMapping(value = "{envId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public BaseResponse<EnvDTO> loadEnvById(@PathVariable("envId") Integer envId) {
-        return envClient.loadEnvById(envId);
+        BaseResponse<EnvDTO> response = envClient.loadEnvById(envId);
+        log.info("response: {}", response);
+        return response;
     }
 }

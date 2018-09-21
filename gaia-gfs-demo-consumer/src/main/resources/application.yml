@@ -12,10 +12,14 @@ spring:
       enabled: true
     livereload:
       enabled: true
+  cloud:
+    consul:
+      discovery:
+        fail-fast: true
 
 logging:
   level:
-    ROOT: WARN
-    com.longfor: WARN
+    ROOT: INFO
+    com.longfor: DEBUG
 
 

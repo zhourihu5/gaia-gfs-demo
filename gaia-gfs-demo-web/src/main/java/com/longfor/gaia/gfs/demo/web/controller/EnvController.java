@@ -9,6 +9,7 @@ import com.longfor.gaia.gfs.web.core.ApiVersion;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/envs")
 @ApiVersion({1, 3})
+@Slf4j
 public class EnvController {
 
     @Resource
@@ -58,7 +60,9 @@ public class EnvController {
             @Valid @NotNull @Min(1)
             @PathVariable("envId") Integer envId) {
         Optional<EnvDTO> env = envService.loadEnvById(envId);
-        return env.map(BaseResponse::new).orElseGet(BaseResponse::new);
+        BaseResponse<EnvDTO> response = env.map(BaseResponse::new).orElseGet(BaseResponse::new);
+        log.info("response: {}", response);
+        return response;
     }
 
 }

@@ -10,9 +10,9 @@ import com.longfor.gaia.gfs.demo.web.repo.dao.condition.EnvPaginateCondition;
 import com.longfor.gaia.gfs.demo.web.repo.dao.entity.Env;
 import com.longfor.gaia.gfs.demo.web.repo.dao.mapper.EnvMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
-import redis.clients.jedis.exceptions.JedisConnectionException;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -50,14 +50,18 @@ public class EnvRepoImpl implements EnvRepo {
     private Env loadInCache(String redisKey) {
         try {
             return (Env) demoRedis.opsForValue().get(redisKey);
-        } catch (JedisConnectionException e) {
+        } catch (RedisConnectionFailureException e) {
             log.warn("Connect redis failed. {}", e.getMessage());
             return null;
         }
     }
 
     private void cacheEnv(String redisKey, Env env) {
-        demoRedis.opsForValue().set(redisKey, env);
+        try {
+            demoRedis.opsForValue().set(redisKey, env);
+        } catch (RedisConnectionFailureException e) {
+            log.warn("Connect redis failed. {}", e.getMessage());
+        }
     }
 
     @Override
