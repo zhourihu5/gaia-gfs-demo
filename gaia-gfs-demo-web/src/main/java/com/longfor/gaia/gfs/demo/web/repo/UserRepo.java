@@ -22,4 +22,5 @@ public interface UserRepo {
 
     Optional<UserDTO> updateUser(UpdateUserReq userReq);
 
+    Optional<UserDTO> deleteUser(Integer id);
 }

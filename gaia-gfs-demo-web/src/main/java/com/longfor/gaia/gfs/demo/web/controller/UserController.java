@@ -97,4 +97,18 @@ public class UserController {
         // 这里注意语法, 如果不存在, 抛出 LFBizException
         return user.map(BaseResponse::new).orElseThrow(() -> new LFBizException("update user failed"));
     }
+
+    @Timed
+    @ApiOperation("删除用户")
+    @DeleteMapping(value = "/{userId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public BaseResponse<UserDTO> updateUserById(
+            @ApiParam(value = "用户 id", required = true)
+            @Valid @Min(1)
+            @PathVariable("userId") Integer id
+    ) {
+        Optional<UserDTO> user = userService.deleteUserById(id);
+        // 这里注意语法, 如果不存在, 抛出 LFBizException
+        return user.map(BaseResponse::new).orElseThrow(() -> new LFBizException("delete user failed"));
+    }
 }

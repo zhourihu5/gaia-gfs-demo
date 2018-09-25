@@ -54,4 +54,16 @@ public class UserRepoImpl implements UserRepo {
         userMapper.updateById(UserConvertor.toPO(userReq));
         return Optional.ofNullable(UserConvertor.toDTO(userMapper.selectByPrimaryKey(userReq)));
     }
+
+    @Override
+    public Optional<UserDTO> deleteUser(Integer id) {
+        User user = userMapper.selectByPrimaryKey(id);
+        if (user == null || user.getDeleted()) {
+            return Optional.empty();
+        }
+
+        user.setDeleted(true);
+        userMapper.updateByPrimaryKey(user);
+        return Optional.of(UserConvertor.toDTO(user));
+    }
 }

@@ -49,4 +49,10 @@ public class UserServiceImpl implements UserService {
         Preconditions.checkArgument(userReq != null, "user should not be null.");
         return userRepo.updateUser(userReq);
     }
+
+    @Override
+    public Optional<UserDTO> deleteUserById(Integer id) {
+        Preconditions.checkArgument(id != null && id > 0, "user id should be positive number.");
+        return userRepo.deleteUser(id);
+    }
 }

@@ -19,4 +19,6 @@ public interface UserService {
     Optional<UserDTO> createUser(CreateUserReq userReq);
 
     Optional<UserDTO> updateUserById(UpdateUserReq userReq);
+
+    Optional<UserDTO> deleteUserById(Integer id);
 }
