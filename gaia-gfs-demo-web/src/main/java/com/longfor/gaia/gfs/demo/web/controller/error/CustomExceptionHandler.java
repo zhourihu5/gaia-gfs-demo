@@ -1,4 +1,4 @@
-package com.longfor.gaia.gfs.demo.web.convertor.error;
+package com.longfor.gaia.gfs.demo.web.controller.error;
 
 import com.longfor.gaia.gfs.core.response.BaseResponse;
 import lombok.extern.slf4j.Slf4j;
