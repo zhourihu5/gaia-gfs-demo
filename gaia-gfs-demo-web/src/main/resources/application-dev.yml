@@ -37,7 +37,7 @@ spring:
 mybatis:
   typeAliasesPackage: com.longfor.gaia.gfs.demo.web.repo.dao.entity
   mapperLocations:
-  - classpath:mapper/*.xml
+  - classpath:com/longfor/gaia/gfs/demo/web/repo/dao/mapper/*.xml
 
 mapper:
   notEmpty: true

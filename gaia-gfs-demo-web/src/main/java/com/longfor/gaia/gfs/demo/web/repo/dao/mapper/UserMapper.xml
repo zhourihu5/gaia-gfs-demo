@@ -1,0 +1,41 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.longfor.gaia.gfs.demo.web.repo.dao.mapper.UserMapper">
+
+    <sql id="COLS_INSERT">
+        username, gender, name, name_en, nickname, province, city, deleted
+    </sql>
+    <sql id="COLS_ALL">
+        id, username, gender, name, name_en nameEn, nickname, cellphone, email, province, city, deleted, create_time createTime, update_time updateTime
+    </sql>
+
+    <select id="paginate" resultType="User">
+        SELECT
+        <include refid="COLS_ALL"/>
+        FROM user
+        <where>
+            <if test="deleted != null">AND deleted=#{deleted}</if>
+        </where>
+    </select>
+
+    <insert id="create" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO user (<include refid="COLS_INSERT"/>)
+        VALUES (#{username}, #{gender}, #{name}, #{nameEn}, #{nickname}, #{province}, #{city}, #{deleted})
+    </insert>
+
+    <update id="updateById">
+        UPDATE user
+        <set>
+            gender = #{gender},
+            name = #{name},
+            name_en = #{nameEn},
+            nickname = #{nickname},
+            province = #{province},
+            city = #{city},
+        </set>
+        <where>
+            id = #{id}
+        </where>
+        LIMIT 1
+    </update>
+
+</mapper>

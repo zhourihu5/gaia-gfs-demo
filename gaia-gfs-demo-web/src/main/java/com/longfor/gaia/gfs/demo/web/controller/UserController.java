@@ -95,6 +95,6 @@ public class UserController {
         userReq.setId(id);
         Optional<UserDTO> user = userService.updateUserById(userReq);
         // 这里注意语法, 如果不存在, 抛出 LFBizException
-        return user.map(BaseResponse::new).orElseThrow(() -> new LFBizException("create user failed"));
+        return user.map(BaseResponse::new).orElseThrow(() -> new LFBizException("update user failed"));
     }
 }

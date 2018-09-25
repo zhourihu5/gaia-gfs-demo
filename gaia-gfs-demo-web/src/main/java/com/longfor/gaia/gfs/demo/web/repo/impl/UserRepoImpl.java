@@ -37,16 +37,21 @@ public class UserRepoImpl implements UserRepo {
 
     @Override
     public Optional<UserDTO> loadUserById(Integer id) {
-        return Optional.empty();
+        User user = userMapper.selectByPrimaryKey(id);
+        return (user == null || user.getDeleted()) ? Optional.empty() : Optional.of(UserConvertor.toDTO(user));
     }
 
     @Override
     public Optional<UserDTO> createUser(CreateUserReq userReq) {
-        return Optional.empty();
+        User po = UserConvertor.toPO(userReq);
+        po.setDeleted(false);
+        userMapper.create(po);
+        return Optional.ofNullable(UserConvertor.toDTO(userMapper.selectByPrimaryKey(po.getId())));
     }
 
     @Override
     public Optional<UserDTO> updateUser(UpdateUserReq userReq) {
-        return Optional.empty();
+        userMapper.updateById(UserConvertor.toPO(userReq));
+        return Optional.ofNullable(UserConvertor.toDTO(userMapper.selectByPrimaryKey(userReq)));
     }
 }

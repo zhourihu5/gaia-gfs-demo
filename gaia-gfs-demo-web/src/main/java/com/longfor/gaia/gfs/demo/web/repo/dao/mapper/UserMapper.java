@@ -14,4 +14,7 @@ public interface UserMapper extends LFMySQLMapper<User> {
 
     List<User> paginate(UserPaginateCondition condition);
 
+    int create(User user);
+
+    int updateById(User user);
 }
