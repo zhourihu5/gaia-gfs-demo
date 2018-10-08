@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  * @author shanhonghao
- * @since 2018-08-17 11:12
+ * @date 2018-08-17 11:12
  */
 @ApiModel("用户信息")
 @Setter
@@ -58,9 +58,11 @@ public class UserDTO implements Serializable {
     private String city;
 
     @ApiModelProperty(value = "创建时间", example = "2018-01-01T01:00:00")
+    @PodamStrategyValue(MockDate.class)
     private Date createTime;
 
     @ApiModelProperty(value = "修改时间", example = "2018-01-01T01:00:00")
+    @PodamStrategyValue(MockDate.class)
     private Date updateTime;
 
 }

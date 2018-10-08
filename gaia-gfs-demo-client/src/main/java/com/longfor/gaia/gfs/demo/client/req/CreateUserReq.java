@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 
 /**
  * @author shanhonghao
- * @since 2018-09-25 09:36
+ * @date 2018-09-25 09:36
  */
 @ApiModel("创建用户 req")
 @Setter

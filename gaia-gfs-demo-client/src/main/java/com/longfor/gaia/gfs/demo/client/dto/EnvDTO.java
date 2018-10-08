@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  * @author shanhonghao
- * @since 2018-08-17 11:12
+ * @date 2018-08-17 11:12
  */
 @ApiModel("env 信息")
 @Data

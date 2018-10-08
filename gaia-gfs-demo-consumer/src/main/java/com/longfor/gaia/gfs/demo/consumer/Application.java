@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author shanhonghao
- * @since 2018-08-21 14:46
+ * @date 2018-08-21 14:46
  */
 @SpringBootApplication(scanBasePackages = "com.longfor")
 @EnableLFFeignClients(basePackages = "com.longfor")

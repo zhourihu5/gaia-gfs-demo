@@ -9,7 +9,7 @@ import org.springframework.beans.BeanUtils;
 
 /**
  * @author shanhonghao
- * @since 2018-08-17 11:14
+ * @date 2018-08-17 11:14
  */
 @SuppressWarnings("Duplicates")
 public class UserConvertor {

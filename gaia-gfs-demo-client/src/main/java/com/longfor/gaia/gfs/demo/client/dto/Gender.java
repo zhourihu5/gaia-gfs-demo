@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 /**
  * 用户性别
  * @author shanhonghao
- * @since 2018-09-25 09:20
+ * @date 2018-09-25 09:20
  */
 public enum Gender {
 

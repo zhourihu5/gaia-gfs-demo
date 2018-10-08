@@ -9,7 +9,7 @@ import java.util.Optional;
 
 /**
  * @author shanhonghao
- * @since 2018-09-25 09:27
+ * @date 2018-09-25 09:27
  */
 public interface UserService {
     PageInfo<UserDTO> paignateUsers(Integer pageNum, Integer pageSize);

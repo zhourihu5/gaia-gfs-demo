@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author shanhonghao
- * @since 2018-09-25 10:14
+ * @date 2018-09-25 10:14
  */
 public interface UserMapper extends LFMySQLMapper<User> {
 

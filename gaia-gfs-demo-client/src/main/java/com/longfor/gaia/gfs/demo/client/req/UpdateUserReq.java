@@ -16,7 +16,7 @@ import java.io.Serializable;
 
 /**
  * @author shanhonghao
- * @since 2018-08-17 11:12
+ * @date 2018-08-17 11:12
  */
 @ApiModel("用户信息")
 @Setter

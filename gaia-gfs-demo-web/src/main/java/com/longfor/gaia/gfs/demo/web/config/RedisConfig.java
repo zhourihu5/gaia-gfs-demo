@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 
 /**
  * @author shanhonghao
- * @since 2018-08-31 16:14
+ * @date 2018-08-31 16:14
  */
 @Configuration
 public class RedisConfig {

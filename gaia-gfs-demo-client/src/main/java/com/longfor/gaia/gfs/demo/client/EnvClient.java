@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author shanhonghao
- * @since 2018-08-16 18:16
+ * @date 2018-08-16 18:16
  */
 @Api(value = "env 相关API", tags = {"env"})
 @LFFeignClient(value = "gaia-gfs-demo-web", group = "gaia-gfs-demo", configuration = LFFeignConfiguration.class)

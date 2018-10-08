@@ -5,7 +5,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @author shanhonghao
- * @since 2018-08-16 18:13
+ * @date 2018-08-16 18:13
  */
 @Configuration
 @tk.mybatis.spring.annotation.MapperScan("com.longfor.gaia.gfs.demo.web.repo.dao.mapper")
