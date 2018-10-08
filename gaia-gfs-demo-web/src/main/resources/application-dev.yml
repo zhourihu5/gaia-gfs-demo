@@ -34,18 +34,8 @@ spring:
 
 # mybatis 配置
 
-mybatis:
-  typeAliasesPackage: com.longfor.gaia.gfs.demo.web.repo.dao.entity
-  mapperLocations:
-  - classpath:com/longfor/gaia/gfs/demo/web/repo/dao/mapper/*.xml
 
-mapper:
-  notEmpty: true
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
+
 
 # gaia gfs 配置
 
@@ -68,6 +58,17 @@ longfor:
         enabled: true # default false
         reportFrequency: 60 # default 60
   data:
+    pagehelper:
+      helperDialect: mysql
+      reasonable: true
+      supportMethodsArguments: true
+      params: count=countSql
+    mybatis:
+      typeAliasesPackage: com.longfor.gaia.gfs.demo.web.repo.dao.entity
+      mapperLocations:
+      - classpath:com/longfor/gaia/gfs/demo/web/repo/dao/mapper/*.xml
+    mapper:
+      notEmpty: true
     #多数据源配置
     dynamic:
       db:
