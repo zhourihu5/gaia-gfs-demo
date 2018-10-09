@@ -30,6 +30,8 @@ spring:
       discovery:
         register: true
         healthCheckInterval: 5s
+  sleuth:
+    enabled: true
 
 
 # mybatis 配置
