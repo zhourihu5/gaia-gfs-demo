@@ -3,6 +3,7 @@ package com.longfor.gaia.gfs.demo.web.repo.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.longfor.gaia.gfs.data.mybatis.datasource.LFAssignDataSource;
+import com.longfor.gaia.gfs.data.redis.RedisKey;
 import com.longfor.gaia.gfs.demo.client.dto.EnvDTO;
 import com.longfor.gaia.gfs.demo.web.convertor.EnvConvertor;
 import com.longfor.gaia.gfs.demo.web.repo.EnvRepo;
@@ -35,7 +36,7 @@ public class EnvRepoImpl implements EnvRepo {
     @Override
     @LFAssignDataSource("custom01")
     public Optional<EnvDTO> loadEnvById(Integer envId) {
-        String redisKey = redisKey(envId);
+        String redisKey = RedisKey.join("eid", envId);
         Env env = loadInCache(redisKey);
 
         if (env == null) {
@@ -71,10 +72,6 @@ public class EnvRepoImpl implements EnvRepo {
         PageInfo pageInfo = new PageInfo(envs);
         pageInfo.setList(envs.stream().map(EnvConvertor::toDTO).collect(Collectors.toList()));
         return pageInfo;
-    }
-
-    private String redisKey(Integer envId) {
-        return String.format("gfs:env:id:%s", envId);
     }
 
 }

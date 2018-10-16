@@ -22,4 +22,5 @@ logging:
     ROOT: INFO
     com.longfor: DEBUG
 
+management.security.enabled: false
 
