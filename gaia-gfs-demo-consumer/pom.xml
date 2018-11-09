@@ -6,7 +6,6 @@
         <groupId>com.longfor.gaia.gfs</groupId>
         <artifactId>gaia-gfs-web-parent</artifactId>
         <version>1.0.2-SNAPSHOT</version>
-        <relativePath></relativePath>
     </parent>
 
     <artifactId>gaia-gfs-demo-consumer</artifactId>
