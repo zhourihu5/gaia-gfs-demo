@@ -13,6 +13,7 @@
         <module>gaia-gfs-demo-consumer</module>
         <module>gaia-gfs-demo-firstapp</module>
         <module>gaia-gfs-demo-mockserver</module>
+        <module>gaia-gfs-demo-unittest</module>
     </modules>
 
 </project>
