@@ -12,9 +12,9 @@ src/main 中有个最简单的逻辑: 通过 userId 获取 user 信息. 只有�
 项目应该是跑不起来的, 因为从配置文件可以发现, 我们尝试连接的 db 和 consul 都是 127.0.0.1, 但对于 Unit Test 来说并不重要.
 因为 UT 的编写, 有一个非常重要的原则:
 
-拔掉网线也能跑!
-拔掉网线也!能!跑!!
-拔!掉!网!线!也!能!跑!!!
+* 拔掉网线也能跑!
+* 拔掉网线也!能!跑!!
+* 拔!掉!网!线!也!能!跑!!!
 
 重要事情说三遍.
 
@@ -29,4 +29,7 @@ src/main 中有个最简单的逻辑: 通过 userId 获取 user 信息. 只有�
 1. UserControllerTest.java // 了解 mocktio 的标准用法
 2. UserRepoImplTest.java // 用 PowerMock 对 mockito 的一些局限性进行补足(如不支持 static method 的 mock)
 3. UserServiceImplTest.java // 多层服务的调用, 用于测试一个完整的业务逻辑
+
+以上三个 demo 连spring 都没用到, 也就是说 完全不依赖你的项目的任何框架, 非常纯粹的 mockito
+
 4. UserMapperTest.java // 集成测试, 测试数据库的 sql
