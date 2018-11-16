@@ -37,7 +37,7 @@
         <dependency>
             <groupId>com.longfor.gaia.gfs</groupId>
             <artifactId>gaia-gfs-apollo-client</artifactId>
-            <version>1.0.1</version>
+            <version>1.1.1</version>
         </dependency>
 
         <dependency>
@@ -97,7 +97,7 @@
     </dependencies>
 
     <build>
-        <finalName>gaia-gfs-demo</finalName>
+        <finalName>gaia-gfs-demo-apollo</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -109,7 +109,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.12</version>
                 <configuration>
-                    <imageName>zhendongli/gaia-gfs-demo</imageName>
+                    <imageName>zhendongli/gaia-gfs-demo-apollo</imageName>
                     <imageTags>
                         <imageTag>${project.version}</imageTag>
                         <imageTag>latest</imageTag>
