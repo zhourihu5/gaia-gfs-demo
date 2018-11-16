@@ -22,8 +22,7 @@ java -Denv=SIT -Dapollo.meta=http://meta.apollo.longfor.sit -Dapollo.cluster=sit
 
 apollo portal中的项目配置（使用AD账号登陆）：
 
-http://portal.apollo.longfor.sit/config.html?#/appid=gaia-gfs-demo-apollo
-
+http://portal.apollo.longfor.sit/config.html#/appid=gaia-gfs-demo-apollo&env=SIT&cluster=sit
 
 
 ##### 运行结果
