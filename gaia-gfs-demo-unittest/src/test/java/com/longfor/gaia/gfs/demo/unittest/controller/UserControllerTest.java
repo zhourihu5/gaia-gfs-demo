@@ -1,5 +1,6 @@
 package com.longfor.gaia.gfs.demo.unittest.controller;
 
+import com.longfor.gaia.gfs.core.exception.LFBizException;
 import com.longfor.gaia.gfs.core.response.BaseResponse;
 import com.longfor.gaia.gfs.demo.unittest.service.UserService;
 import org.junit.Test;
@@ -7,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 
 import java.util.Optional;
 
@@ -14,9 +16,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * 这是一个最简单的 mockito 的用法, 我们直接把 service 层全部mock, 并模拟各种情况下的处理逻辑
@@ -63,6 +63,26 @@ public class UserControllerTest {
 
         // mock 的验证
         verify(userService, times(1)).loadUserById(any(String.class)); // 有且只有一次执行
+    }
+
+    @Test(expected = ResourceNotFoundException.class) // 测试期望的异常
+    public void testLoadUserById_notFound() {
+        UserDTO mockUser = mockUser();
+
+        when(userService.loadUserById(any(String.class))).thenReturn(Optional.empty());
+
+        // 执行你的逻辑
+        userController.loadUserById(mockUser.getUserId()); // 这一步我们期望会抛出异常
+    }
+
+    @Test(expected = LFBizException.class) // 测试期望的异常
+    public void testLoadUserById_bizException() {
+        UserDTO mockUser = mockUser();
+
+        when(userService.loadUserById(any(String.class))).thenThrow(new LFBizException());
+
+        // 执行你的逻辑
+        userController.loadUserById(mockUser.getUserId());
     }
 
     private UserDTO mockUser() {

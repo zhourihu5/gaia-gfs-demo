@@ -1,7 +1,29 @@
 # ===================================================================
 # springboot标准配置
 # ===================================================================
+server:
+  port: 8080
+
 spring:
+  application:
+    name: gaia-gfs-demo-unittest
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true #remote visit
+        trace: true
+      path: /h2-console #console url
+  cloud:
+    consul:
+      enabled: true
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        register: true
+        healthCheckInterval: 5s
+  sleuth:
+    enabled: true
   profiles:
     active: dev
   mvc:
@@ -19,6 +41,7 @@ logging:
     com.longfor: INFO
 
 management:
+  port: 9980
   security:
     enabled: false
   info:
@@ -37,3 +60,75 @@ endpoints:
     enabled: true
     sensitive: false
 
+# ===================================================================
+# gaia gfs 配置
+# ===================================================================
+
+longfor:
+  web:
+    swagger:
+      enabled: true
+      description: api docs for gaia gfs demo
+      basePackage: com.longfor
+      contact:
+        name: shanhonghao
+        url: https://www.shanhh.com
+        email: i@shanhh.com
+    metrics:
+      jmx:
+        enabled: true # default true
+      prometheus:
+        enabled: true # default false
+      logs:
+        enabled: true # default false
+        reportFrequency: 60 # default 60
+  data:
+    pagehelper:
+      helperDialect: mysql
+      reasonable: true
+      supportMethodsArguments: true
+      params: count=countSql
+    mybatis:
+      typeAliasesPackage: com.longfor.gaia.gfs.demo.unittest.repo.entity
+      mapperLocations:
+      - classpath:com/longfor/gaia/gfs/demo/unittest/repo/mapper/*.xml
+    mapper:
+      notEmpty: true
+    #多数据源配置
+    database:
+      primary: master
+      connection:
+        master:
+          #默认数据源
+          type: com.alibaba.druid.pool.DruidDataSource
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/mysql?useUnicode=true&characterEncoding=UTF8
+          username: root
+          password: root
+          druid:
+            filters: stat
+            max-active: 20
+            initial-size: 1
+            max-wait: 30000
+            min-idle: 1
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+            test-while-idle: true
+            test-on-borrow: false
+            test-on-return: false
+            pool-prepared-statements: false
+            max-open-prepared-statements: -1
+            remove-abandoned: true
+            remove-abandoned-timeout-millis: 500000
+            web-stat-filter-exclusions: '*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*,/download/*,/wj/*,/assets/*'
+    redis:
+      namespace: gfs:demo:unittest
+      connection:
+        demoRedis:
+          database: 10
+          timeout: 2000
+          host: 127.0.0.1
+          port: 6379
+          pool:
+            minIdle: 50
+            maxActive: 50

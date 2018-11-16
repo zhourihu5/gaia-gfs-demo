@@ -1,0 +1,50 @@
+# gaia-gfs 配置
+spring:
+  datasource: # 引用内存数据库测试 sql
+    username: sa
+    password:
+    schema: classpath:db/schema.sql
+    data: classpath:db/data.sql
+  cloud:
+    consul:
+      enabled: false
+
+logging:
+  level:
+    ROOT: WARN
+
+longfor:
+  web.validate.enabled: false
+  data:
+    pagehelper:
+      helperDialect: mysql
+      reasonable: true
+      supportMethodsArguments: true
+      params: count=countSql
+    mybatis:
+      typeAliasesPackage: com.longfor.gaia.gfs.demo.unittest.repo.entity
+      mapperLocations:
+      - classpath:com/longfor/gaia/gfs/demo/unittest/repo/mapper/*.xml
+    mapper:
+      notEmpty: true
+    #多数据源配置
+    database:
+      primary: master
+      connection:
+        master:
+          #默认数据源
+          driver-class-name: org.h2.Driver
+          url: jdbc:h2:mem:db_master;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+          username: sa
+          password:
+    redis:
+      namespace: gfs:demo:unittest
+      connection:
+        demoRedis:
+          database: 10
+          timeout: 2000
+          host: 127.0.0.1
+          port: 6379
+          pool:
+            minIdle: 50
+            maxActive: 50

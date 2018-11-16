@@ -3,6 +3,7 @@ package com.longfor.gaia.gfs.demo.unittest.controller;
 import com.longfor.gaia.gfs.core.response.BaseResponse;
 import com.longfor.gaia.gfs.demo.unittest.service.UserService;
 import com.longfor.gaia.gfs.web.core.ApiVersion;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,7 @@ public class UserController {
 
     @GetMapping("{userId}")
     public BaseResponse<UserDTO> loadUserById(@PathVariable String userId) {
-        return userService.loadUserById(userId).map(BaseResponse::new).orElseGet(BaseResponse::new);
+        return userService.loadUserById(userId).map(BaseResponse::new).orElseThrow(ResourceNotFoundException::new);
     }
 
 }

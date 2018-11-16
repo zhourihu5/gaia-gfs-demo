@@ -18,3 +18,9 @@ src/main 中有个最简单的逻辑: 通过 userId 获取 user 信息. 只有�
 
 重要事情说三遍.
 
+一个提供了 4 个 unit test demo, 涵盖了:
+
+1. mockito 的使用
+2. mocktio 模拟异常, 多层 mock 等高级用法
+3. 通过内存 h2 数据库 测试 sql
+
