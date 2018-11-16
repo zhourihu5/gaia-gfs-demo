@@ -24,3 +24,9 @@ src/main 中有个最简单的逻辑: 通过 userId 获取 user 信息. 只有�
 2. mocktio 模拟异常, 多层 mock 等高级用法
 3. 通过内存 h2 数据库 测试 sql
 
+建议的阅读顺序:
+
+1. UserControllerTest.java // 了解 mocktio 的标准用法
+2. UserRepoImplTest.java // 用 PowerMock 对 mockito 的一些局限性进行补足(如不支持 static method 的 mock)
+3. UserServiceImplTest.java // 多层服务的调用, 用于测试一个完整的业务逻辑
+4. UserMapperTest.java // 集成测试, 测试数据库的 sql
