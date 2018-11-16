@@ -28,7 +28,7 @@ http://portal.apollo.longfor.sit/config.html?#/appid=gaia-gfs-demo-apollo
 
 ##### 运行结果
 
-带程序启动后访问：htttp://127.0.0.1:9000/v1/echo/hello  即可返回拉取到的部分配置信息
+程序启动后访问：htttp://127.0.0.1:9000/v1/echo/hello  即可返回拉取到的部分配置信息
 
 详情请参考：http://wiki.longhu.net:8090/pages/viewpage.action?pageId=4589936
 
