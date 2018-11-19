@@ -51,7 +51,8 @@ public class UserRepoImpl implements UserRepo {
 
     @Override
     public Optional<UserDTO> updateUser(UpdateUserReq userReq) {
-        userMapper.updateById(UserConvertor.toPO(userReq));
+        //根据主键更新属性不为null的值
+        userMapper.updateByPrimaryKeySelective(UserConvertor.toPO(userReq));
         return Optional.ofNullable(UserConvertor.toDTO(userMapper.selectByPrimaryKey(userReq)));
     }
 
