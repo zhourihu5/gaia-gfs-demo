@@ -24,6 +24,8 @@ spring:
       path: /h2-console #console url
   cloud:
     consul:
+      # 这里特别要注意, 当且仅当你的应用准备发布到 gravitee 供其他环境访问时, 才enabled consul
+      # 本地开发不要用 consul, 因为consul 无法检查你的本地开发机的 health
       enabled: true
       host: 127.0.0.1
       port: 8500
