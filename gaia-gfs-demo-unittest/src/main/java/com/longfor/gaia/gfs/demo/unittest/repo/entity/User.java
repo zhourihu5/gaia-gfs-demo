@@ -2,6 +2,7 @@ package com.longfor.gaia.gfs.demo.unittest.repo.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import tk.mybatis.mapper.annotation.KeySql;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -17,6 +18,7 @@ import java.io.Serializable;
 @Table(name = "test_user")
 public class User implements Serializable {
     @Id
+    @KeySql(useGeneratedKeys = true)
     @Column(name = "user_id")
     private String userId;
     private String username;
