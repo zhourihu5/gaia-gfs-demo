@@ -15,6 +15,7 @@
         <module>gaia-gfs-demo-mockserver</module>
         <module>gaia-gfs-demo-unittest</module>
         <module>gaia-gfs-demo-apollo</module>
+        <module>gaia-gfs-demo-dorado</module>
     </modules>
 
 </project>

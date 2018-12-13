@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: gaia-gfs-demo-dorado
+  cloud:
+    consul:
+      enabled: false
+
+server.port: 8080
+management.port: 9980
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Model/>
+  <View>
+    <Property name="title">HelloWorld</Property>
+    <Button>
+      <Property name="caption">test</Property>
+    </Button>
+  </View>
+</ViewConfig>
