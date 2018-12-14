@@ -1,3 +1,9 @@
+# ===================================================================
+# springboot标准配置
+# ===================================================================
+server.port: 8080
+management.port: 9980
+
 spring:
   application:
     name: gaia-gfs-demo-dorado
@@ -5,6 +11,36 @@ spring:
     consul:
       enabled: false
 
-server.port: 8080
-management.port: 9980
+  mvc:
+    favicon:
+      enabled: false
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+logging:
+  level:
+    ROOT: WARN
+    com.longfor: INFO
+
+management:
+  security:
+    enabled: false
+  info:
+    git:
+      enabled: true
+    env:
+      enabled: true
+endpoints:
+  health:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  info:
+    enabled: true
+    sensitive: false
 
