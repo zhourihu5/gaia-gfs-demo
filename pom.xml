@@ -4,7 +4,7 @@
 
     <groupId>com.longfor.gaia.gfs</groupId>
     <artifactId>gaia-gfs-demo</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
