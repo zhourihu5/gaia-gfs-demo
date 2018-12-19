@@ -1,6 +1,6 @@
-package com.longfor.gais.gfs.apollo.services;
+package com.longfor.gaia.gfs.apollo.services;
 
-import com.longfor.gais.gfs.apollo.dto.Blog;
+import com.longfor.gaia.gfs.apollo.dto.Blog;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

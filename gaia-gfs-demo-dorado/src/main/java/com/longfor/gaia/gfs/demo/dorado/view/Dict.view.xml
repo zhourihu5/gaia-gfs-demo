@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="Dictionary">
+      <Property name="creationType">com.longfor.gaia.gfs.demo.dorado.dto.DictDTO</Property>
+      <PropertyDef name="id">
+        <Property></Property>
+        <Property name="label">ID</Property>
+      </PropertyDef>
+      <PropertyDef name="code">
+        <Property></Property>
+        <Property name="label">编码</Property>
+        <Property name="required">true</Property>
+      </PropertyDef>
+      <PropertyDef name="name">
+        <Property></Property>
+        <Property name="label">名称</Property>
+        <Property name="required">true</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <Property name="packages">font-awesome,colors</Property>
+    <DataSet id="dsDictionary">
+      <Property name="dataProvider">dictionaryController#load</Property>
+      <Property name="dataType">[Dictionary]</Property>
+      <Property name="pageSize">30</Property>
+    </DataSet>
+      <DataGrid layoutConstraint="center">
+          <Property name="dataSet">dsDictionary</Property>
+          <DataColumn name="id">
+              <Property name="property">id</Property>
+          </DataColumn>
+          <DataColumn name="code">
+              <Property name="property">code</Property>
+          </DataColumn>
+          <DataColumn name="name">
+              <Property name="property">name</Property>
+          </DataColumn>
+      </DataGrid>
+      <ToolBar layoutConstraint="bottom">
+          <DataPilot>
+              <Property name="dataSet">dsDictionary</Property>
+              <Property name="itemCodes">pages</Property>
+          </DataPilot>
+      </ToolBar>
+  </View>
+</ViewConfig>

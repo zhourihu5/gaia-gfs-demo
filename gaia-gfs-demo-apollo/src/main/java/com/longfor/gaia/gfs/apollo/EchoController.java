@@ -1,4 +1,4 @@
-package com.longfor.gais.gfs.apollo;
+package com.longfor.gaia.gfs.apollo;
 
 import com.google.common.io.CharStreams;
 import org.springframework.beans.factory.annotation.Autowired;

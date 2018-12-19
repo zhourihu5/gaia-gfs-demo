@@ -1,7 +1,7 @@
-package com.longfor.gais.gfs.apollo.controllers;
+package com.longfor.gaia.gfs.apollo.controllers;
 
-import com.longfor.gais.gfs.apollo.dto.Blog;
-import com.longfor.gais.gfs.apollo.services.BlogService;
+import com.longfor.gaia.gfs.apollo.dto.Blog;
+import com.longfor.gaia.gfs.apollo.services.BlogService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

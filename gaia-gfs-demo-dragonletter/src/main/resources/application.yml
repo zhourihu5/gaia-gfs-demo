@@ -6,7 +6,7 @@ management.port: 9980
 
 spring:
   application:
-    name: gaia-gfs-demo-dorado
+    name: gaia-gfs-demo-dragonletter
   cloud:
     consul:
       enabled: false
@@ -44,4 +44,14 @@ endpoints:
     enabled: true
     sensitive: false
 
-
+longfor:
+  web:
+    feign:
+      clients:
+        dragonletter:
+          dragonletterMessageClient:
+            url: http://api.longfor.sit/dragonletter-deliver-sit
+            apikey: a392c386-b3aa-4b5c-8e18-20fed8484d7d
+          dragonletterTodoClient:
+            url: http://api.longfor.sit/dragonletter-dynamic-sit
+            apikey: d7c175f8-24d8-4994-aa8d-4863cfe3e6e4
