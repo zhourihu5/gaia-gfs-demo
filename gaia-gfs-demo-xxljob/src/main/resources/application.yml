@@ -1,0 +1,36 @@
+server.port: 8080
+management.port: 9980
+
+spring:
+  application:
+    name: gaia-gfs-demo-xxljob
+  cloud:
+    consul:
+      enabled: false
+      discovery:
+        fail-fast: false
+
+management:
+  security:
+    enabled: false
+
+longfor:
+  web:
+    xxljob:
+      enabled: true
+      admin:
+        # 调度中心部署地址
+        addresses: http://job.longfor.sit
+      executor:
+        # 执行器"AppName"和地址信息配置：AppName执行器心跳注册分组依据；地址信息用于"调度中心请求并触发任务"和"执行器注册"
+        appname: gaia-gfs-demo-xxljob
+        # 执行器IP[选填]，为空则自动获取
+        ip:
+        # 执行器端口号
+        port: 9992
+        # 执行器通讯TOKEN，非空时启用，应与调度中心一致
+        accessToken: 53aa0953
+        # 执行器运行日志文件存储的磁盘位置，需要对该路径拥有读写权限
+        logpath: /tmp/xxl-job/jobhandler
+        # 执行器Log文件定期清理功能，指定日志保存天数，日志文件过期自动删除。限制至少保持3天，否则功能不生效
+        logretentiondays: -1

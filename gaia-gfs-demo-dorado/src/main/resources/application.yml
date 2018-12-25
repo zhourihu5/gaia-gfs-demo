@@ -23,6 +23,7 @@ spring:
 logging:
   level:
     ROOT: WARN
+    com.bstek: INFO
     com.longfor: INFO
 
 management:
@@ -44,4 +45,7 @@ endpoints:
     enabled: true
     sensitive: false
 
-
+dorado:
+  view:
+    mergeJavaScript: true
+    useMinifiedJavaScript: false

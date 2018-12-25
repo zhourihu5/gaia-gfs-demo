@@ -11,5 +11,5 @@ import org.springframework.test.context.junit4.SpringRunner;
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         classes = Application.class)
 @RunWith(SpringRunner.class)
-public class ApplicationTests {
+public abstract class ApplicationTests {
 }
