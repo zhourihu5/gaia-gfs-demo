@@ -17,5 +17,6 @@
         <module>gaia-gfs-demo-apollo</module>
         <module>gaia-gfs-demo-dorado</module>
         <module>gaia-gfs-demo-dragonletter</module>
+        <module>gaia-gfs-demo-xxljob</module>
     </modules>
 </project>
