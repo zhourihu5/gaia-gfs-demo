@@ -1,4 +1,4 @@
-package com.longfor.gais.gfs.apollo.dto;
+package com.longfor.gaia.gfs.apollo.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

@@ -5,15 +5,15 @@
     <parent>
         <groupId>com.longfor.gaia.gfs</groupId>
         <artifactId>gaia-gfs-web-parent</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.4-SNAPSHOT</version>
     </parent>
 
     <artifactId>gaia-gfs-demo-unittest</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
-        <gaia-gfs.version>1.0.2-SNAPSHOT</gaia-gfs.version>
+        <gaia-gfs.version>1.0.4-SNAPSHOT</gaia-gfs.version>
         <powermock.version>1.7.1</powermock.version>
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>

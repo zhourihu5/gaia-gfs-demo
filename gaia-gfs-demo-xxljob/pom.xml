@@ -8,20 +8,19 @@
         <version>1.0.4-SNAPSHOT</version>
     </parent>
 
-    <artifactId>gaia-gfs-demo-mockserver</artifactId>
+    <artifactId>gaia-gfs-demo-xxljob</artifactId>
     <version>1.0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
-        <gaia-gfs.version>1.0.4-SNAPSHOT</gaia-gfs.version>
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-demo-client</artifactId>
-            <version>${gaia-gfs.version}</version>
+            <artifactId>gaia-gfs-web-xxljob</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -36,7 +35,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.longfor.gaia.gfs.demo.mockserver.Application</mainClass>
+                    <mainClass>com.longfor.gaia.gfs.demo.xxljob.Application</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>

@@ -8,21 +8,21 @@
         <version>1.0.4-SNAPSHOT</version>
     </parent>
 
-    <artifactId>gaia-gfs-demo-mockserver</artifactId>
+    <artifactId>gaia-gfs-demo-dragonletter</artifactId>
     <version>1.0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
-        <gaia-gfs.version>1.0.4-SNAPSHOT</gaia-gfs.version>
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.longfor.gaia.gfs</groupId>
-            <artifactId>gaia-gfs-demo-client</artifactId>
-            <version>${gaia-gfs.version}</version>
+            <artifactId>gaia-gfs-web-dragonletter</artifactId>
+            <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -30,24 +30,19 @@
     </dependencies>
 
     <build>
-        <finalName>${project.name}</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.longfor.gaia.gfs.demo.mockserver.Application</mainClass>
-                    <layout>ZIP</layout>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
     </build>
 
 </project>

@@ -1,4 +1,4 @@
-package com.longfor.gais.gfs.apollo;
+package com.longfor.gaia.gfs.apollo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

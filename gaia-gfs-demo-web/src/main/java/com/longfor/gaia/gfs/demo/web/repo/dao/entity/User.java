@@ -2,6 +2,7 @@ package com.longfor.gaia.gfs.demo.web.repo.dao.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tk.mybatis.mapper.annotation.KeySql;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -17,6 +18,7 @@ import java.util.Date;
 public class User {
 
     @Id
+    @KeySql(useGeneratedKeys = true)
     private Integer id;
     private String username;
     private Integer gender;
