@@ -37,7 +37,7 @@
         <dependency>
             <groupId>com.longfor.gaia.gfs</groupId>
             <artifactId>gaia-gfs-apollo-client</artifactId>
-            <version>1.1.1</version>
+            <version>1.1.2</version>
         </dependency>
 
         <dependency>
