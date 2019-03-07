@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import java.util.Optional;
@@ -37,6 +38,13 @@ public class UserRepoImpl implements UserRepo {
         return Optional.ofNullable(toDTO(user));
     }
 
+    @Override
+    public Optional<UserDTO> loadByName(String username) {
+        Example example = new Example(User.class);
+        example.createCriteria().andEqualTo("username", username);
+        User user = userMapper.selectOneByExample(example);
+        return Optional.ofNullable(toDTO(user));
+    }
 
     private User loadInCache(String redisKey) {
         try {

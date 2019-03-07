@@ -10,4 +10,6 @@ import java.util.Optional;
  */
 public interface UserRepo {
     Optional<UserDTO> loadUserById(String userId);
+
+    Optional<UserDTO> loadByName(String username);
 }

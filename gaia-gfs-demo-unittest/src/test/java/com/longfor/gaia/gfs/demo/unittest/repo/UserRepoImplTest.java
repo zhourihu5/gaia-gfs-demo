@@ -14,16 +14,17 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
-import static org.powermock.api.mockito.PowerMockito.mockStatic;
-import static org.powermock.api.mockito.PowerMockito.when;
+import static org.powermock.api.mockito.PowerMockito.*;
 
 /**
  * 这里例子有几个特殊的地方, 被测逻辑中调用了一个 static 方法, 即 RedisKey.join()
@@ -44,6 +45,10 @@ public class UserRepoImplTest {
     private UserMapper userMapper;
     @Mock
     private ValueOperations valueOperations;
+    @Mock
+    private Example example;
+    @Mock
+    private Example.Criteria criteria;
 
     @Before
     public void setUp() {
@@ -67,6 +72,21 @@ public class UserRepoImplTest {
 
         verify(valueOperations, Mockito.times(1)).get(any(String.class));
         verify(userMapper, Mockito.times(1)).selectByPrimaryKey(any(String.class));
+    }
+
+    @Test
+    @PrepareForTest({Example.class, UserRepoImpl.class, RedisKey.class}) // 声明这个 test 会使用 powermock 针对 RedisKey 有特殊操作.
+    public void loadUserByUsername() throws Exception {
+        User mockUser = mockUser();
+
+        whenNew(Example.class).withAnyArguments().thenReturn(example);
+        when(example.createCriteria()).thenReturn(criteria);
+
+        when(userMapper.selectOneByExample(any(Example.class))).thenReturn(mockUser);
+
+        Optional<UserDTO> user = userRepo.loadByName(UUID.randomUUID().toString());
+        assertThat(user.get().getUsername(), is(mockUser.getUsername()));
+
     }
 
     private User mockUser() {
